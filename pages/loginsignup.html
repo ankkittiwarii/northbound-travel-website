@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+     <link rel="stylesheet" href="../assets/css/signup.css">
+</head>
+<body>
+     <div class="background-wrapper">
+        <div class="login-card">
+            <h1>Sign Up</h1>
+            <p>Already have an account? <a href="#">Log In</a></p>
+
+            <div class="Social-buttons">
+                <button class="Social-buttons google" onclick="openGoogle()"><img src="../assets/images/icons8-google-100.png" alt="Google" class="Social-icon">Continue with Google</button> 
+            </div>    
+            <div class="Social-button">
+                <button class="Social-buttons facebook" onclick="openfacebook()"><img src="../assets/images/icons8-facebook-100.png" alt="FaceBook" class="Social-icon">Continue with FaceBook</button>
+            </div>    
+            <div class="Social-btn">
+                <button class="Social-buttons apple" onclick="openApple()"><img src="../assets/images/icons8-apple-inc-100.png" alt="Apple" class="Social-icon">Continue with Apple</button>
+            </div>
+
+            <h3>--------------------------------------------or--------------------------------------------</h3>
+
+            <input type="email" placeholder="Email" class="input-field">
+            <button class="submit-btn" onclick="sendEmail()">Continue with Email</button>
+        </div>
+    </div>
+   
+    <script>
+        function openGoogle() {
+            window.open("https://accounts.google.com","_blank");
+        }
+              function openfacebook() {
+            window.open("https://www.facebook.com/login","_blank");
+              }
+              function openApple() {
+            window.open("https://appleid.apple.com","_blank");
+        }
+        function sendEmail() {
+            window.location.href="mailto:example@gmail.com";
+        }
+    </script>
+    </body>
+    </html>

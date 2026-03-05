@@ -1,0 +1,158 @@
+/* Container and Typography */
+.special-offers {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.offers-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.offers-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.offers-header h2 {
+  font-size: 2.5rem;
+  color: #1a365d;
+  margin-bottom: 10px;
+}
+
+/* Flexbox Layout for Cards */
+.offers-flex-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Individual Card Styling */
+.offer-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px 20px;
+  width: 300px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.highlight-card {
+  border: 2px solid #3182ce;
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.highlight-card:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.discount-badge { background: #e2e8f0; color: #2d3748; }
+.urgent-badge { background: #fed7d7; color: #c53030; }
+.group-badge { background: #c6f6d5; color: #276749; }
+
+/* Text Content */
+.offer-card h3 {
+  font-size: 1.4rem;
+  color: #2b6cb0;
+  margin-bottom: 15px;
+}
+
+.offer-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 25px;
+  flex-grow: 1; /* Pushes the button to the bottom */
+}
+
+.timer {
+  color: #e53e3e;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.offer-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  background: #edf2f7;
+  color: #2b6cb0;
+  width: 100%;
+}
+
+.offer-btn:hover {
+  background: #e2e8f0;
+}
+
+.primary-btn {
+  background: #3182ce;
+  color: white;
+}
+
+.primary-btn:hover {
+  background: #2b6cb0;
+}
+
+/* Testimonial Section */
+.offers-testimonial {
+  margin-top: 60px;
+  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.offers-testimonial h3 {
+  color: #1a365d;
+  margin-bottom: 20px;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #4a5568;
+  max-width: 600px;
+  margin: 0 auto 10px auto;
+}
+
+/* .author {
+  font-weight: bold;
+  color: #2d3748;
+} */
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .highlight-card {
+    transform: none;
+  }
+  .highlight-card:hover {
+    transform: translateY(-5px);
+  }
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Booking | TravelDeals</title>
+    <link rel="stylesheet" href="../assets/css/booking.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="booking-wrapper">
+    <div class="booking-card">
+        <div class="booking-form-side">
+            <h2>Complete Your Booking</h2>
+            <p>Enter your details to secure your spot.</p>
+            
+            <form id="proBookingForm">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="e.g. Rajan" required>
+                </div>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="+91 9878******" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Travel Date</label>
+                        <input type="date" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Number of Travelers</label>
+                    <input type="number" min="1" max="20" value="1">
+                </div>
+
+                <button type="submit" class="pay-btn">Claim Deal Now</button>
+            </form>
+        </div>
+        <div id="toast">Message here...</div>
+
+        <div class="summary-side">
+            <h3>Package Summary</h3>
+            <div class="package-info">
+                <h4 id="displayPackage">Jaisalmer Golden Sands</h4>
+                <p id="packageDetails">3 Days / 2 Nights • Luxury Desert Camp</p>
+                <div class="price-tag">
+                    <span class="old-price">₹10,000</span>
+                    <span class="new-price">₹6,999 / person</span>
+                </div>
+            </div>
+            <ul class="perks">
+                <li>✅ Free Camel Safari</li>
+                <li>✅ Cultural Folk Dance</li>
+                <li>✅ Breakfast & Dinner included</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+//     URL se data fetch karke summary update karna
+//     window.onload = function() {
+//         const urlParams = new URLSearchParams(window.location.search);
+//         const pkg = urlParams.get('package');
+        
+//         if (pkg === 'ladakh') {
+//             document.getElementById('displayPackage').innerText = "Ladakh Expedition";
+//             document.getElementById('packageDetails').innerText = "6 Days / 5 Nights • Leh & Pangong Lake";
+//             document.querySelector('.new-price').innerText = "₹15,999 / person";
+// }
+// }
+    window.onload = function() {
+    // 1. URL se package ka naam lena (e.g., ?package=ladakh)
+    const urlParams = new URLSearchParams(window.location.search);
+    const pkg = urlParams.get('package');
+
+    // 2. Saare packages ka data ek jagah store karna
+    const packageData = {
+        'jaisalmer': {
+            title: "Jaisalmer Golden Sands",
+            details: "3 Days / 2 Nights • Luxury Desert Camp",
+            oldPrice: "₹10,000",
+            newPrice: "6,999",
+            perks: ["Free Camel Safari", "Cultural Folk Dance", "Breakfast & Dinner"]
+        },
+        'ladakh': {
+            title: "Ladakh Expedition",
+            details: "6 Days / 5 Nights • Leh & Pangong Lake",
+            oldPrice: "₹20,000",
+            newPrice: "15,500",
+            perks: ["Bike Rental Included", "Oxygen Support", "Inner Line Permits"]
+        },
+        'shimla': {
+            title: "Himalayan Retreat",
+            details: "4 Days / 3 Nights • Mountain View Resort",
+            oldPrice: "₹12,000",
+            newPrice: "8,499",
+            perks: ["Guided Trekking", "Bonfire Night", "Luxury Stay"]
+        }
+    };
+
+    // 3. Agar URL mein package match karta hai, toh details update karna
+    if (pkg && packageData[pkg]) {
+        const data = packageData[pkg];
+        document.getElementById('displayPackage').innerText = data.title;
+        document.getElementById('packageDetails').innerText = data.details;
+        document.querySelector('.old-price').innerText = data.oldPrice;
+        document.querySelector('.new-price').innerText = "₹7,999" + data.newPrice + " / person";
+        
+        // Perks update karne ke liye
+        const perksList = document.querySelector('.perks');
+        perksList.innerHTML = data.perks.map(p => `<li>✅ ${p}</li>`).join('');
+    }
+}
+
+
+    document.getElementById('proBookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Button ko "Processing" mein badalna
+    const btn = document.querySelector('.pay-btn');
+    btn.innerHTML = "Claiming...";
+    btn.disabled = true;
+
+    setTimeout(() => {
+        // Form reset karna
+        this.reset();
+        btn.innerHTML = "Claim Deal Now";
+        btn.disabled = false;
+
+        // Professional Notification dikhana
+        showToast("Success! Your Jaisalmer deal is secured.");
+    }, 1500);
+});
+
+function showToast(text) {
+    const toast = document.getElementById("toast");
+    toast.innerText = text;
+    toast.className = "show";
+    
+    // 3 second baad hide karna
+    setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+}
+</script>
+
+</body>
+</html>

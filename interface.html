@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>NorthBound</title>
+        <link rel="stylesheet" href="assets/css/interfaces.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo"><img src="assets/images/logoimage.jfif" alt="logo">NorthBound</div>
+            <nav>
+                <a href="pages/loginsignup.html">Home</a>
+                <a href="pages/destination.html">Destinations</a>
+                <a href="pages/Hotels.html">Hotels</a>
+                <a href="pages/activities.html">Activities</a>
+                <a href="pages/contact.html">Contact</a>
+                <a href="pages/packages.html">Packages</a>
+            </nav>
+        </header>
+        <section class="mount">
+            <div class="mount-content">
+                <h2>Why Travel With NorthBound?</h2>
+                <p>
+                    NorthBound is dedicated to delivering premium travel experiences across Northern India.
+                    We Combine confort, adventure, and local authenticity to craft journeys that stay with you forever.
+                    Whether it's serene valleys, snowy peaks, or cultural heritage, we ensure every moment feels extraordinary.
+                </p>
+                <section>
+                <div class="buttons">
+                    <button class="btn1" onclick="window.open('pages/packages.html', '_blank')">View Packages</button>
+                    <button class="btn2" onclick="window.open('pages/destination.html', '_blank')">Explore Destinations</button>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            const images=[
+                "assets/images/mountainimage.jpg",
+                "assets/images/mountainimage1.jpg",
+                "assets/images/mountainimage2.jpg",
+                "assets/images/mountainimage3.jpg"
+            ];  
+
+            let i=0;
+            const mount=document.querySelector(".mount");
+
+            function cbground(){
+                mount.style.backgroundImage="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('"+images[i]+"')";
+
+                mount.style.backgroundSize="cover";
+                mount.style.backgroundPosition="center";
+                i++;
+                if(i>=images.length){
+                    i=0;
+                }
+            }
+            cbground();
+            setInterval(cbground,5000);
+
+            </script>
+
+    </body>
+</html>

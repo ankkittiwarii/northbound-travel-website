@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels</title>
+    <link rel="stylesheet" href="../assets/css/hotels.css">
+</head>
+<body>
+    <section class="hotels-section">
+        <div class="section-header">
+            <span class="category-label">HOTELS</span>
+            <h2 class="main-title">Stays Across the Himalayas & Beyond</h2>
+            <div class="filter-container">
+                <label for="days-filter">Filter by Stay:</label>
+                <select id="days-filter" name="days">
+                    <option value="1">1 Night</option>
+                    <option value="2">2 Nights</option>
+                    <option value="3">3 Nights</option>
+                    <option value="5">5+ Nights</option>
+                </select>
+            </div>
+        </div>
+        <div class="booking-bar">
+      
+      <div class="booking-input">
+        <label>Check-in</label>
+        <input type="date" id="checkin">
+      </div>
+
+      <div class="booking-input">
+        <label>Check-out</label>
+        <input type="date" id="checkout">
+      </div>
+
+      <div class="booking-input">
+        <label>Guests</label>
+        <select id="guests">
+          <option value="1">1 Guest</option>
+          <option value="2">2 Guests</option>
+          <option value="3">3 Guests</option>
+          <option value="4">4 Guests</option>
+        </select>
+      </div>
+
+      <button class="search-btn">Check Prices</button>
+
+    </div>
+
+        <div class="destination-nav">
+            <a href="#leh"
+            class="nav-pill">Leh Ladakh</a>
+            <a href="#gulmarg"
+            class="nav-pill">Gulmarg</a>
+            <a href="#rishikesh"
+            class="nav-pill">Rishikesh</a>
+            <a href="#dharamshala"
+            class="nav-pill">Dharamshala</a>
+            <a href="#manali"
+            class="nav-pill">Manali</a>
+            <a href="#shimla"
+            class="nav-pill">Shimla</a>
+            <a href="#kasol"
+            class="nav-pill">Kasol</a>
+            <a href="#kufri"
+            class="nav-pill">Kufri</a>
+            <a href="#dehradun"
+            class="nav-pill">Dehradun</a>
+            <a href="#amritsar"
+            class="nav-pill">Amritsar</a>
+            <a href="#mussoorie"
+            class="nav-pill">Mussoorie</a>
+            <a href="#nainital"
+            class="nav-pill">Nainital</a>
+            <a href="#spiti"
+            class="nav-pill">Spiti</a>
+            <a href="#auli"
+            class="nav-pill">Auli</a>
+            <a href="#jaisalmer"
+            class="nav-pill">Jaisalmer</a>
+        </div>
+
+        <div id="leh" class="location-section">
+            <h3 class="location-title">Top Picks in Leh Ladakh</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/leh.webp" alt="The Grand Dragon Ladakh">
+                    <div class="card-content">
+                        <h3 class="hotel-name">The Grand Dragon (Leh)</h3>
+                        <p class="hotel-desc">Refined 5-Star hotel with airy rooms, suites, some with mountain views.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★★ (4.5/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹21,299</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hotel-card luxury">
+                  <img src="../assets/images/Dolkhar.jpg" alt="Dolkhar Resort">
+                    <div class="card-content">
+                       <h3 class="hotel-name">Dolkhar Resort (Leh)</h3>
+                           <p class="hotel-desc">Beautiful Boutique luxury resort with traditional Ladakhi architecture and great views.</p>
+                            <div class="hotel-details">
+                             <p><strong>Rating:</strong> ★★★★★ (4.8/5)</p>
+                             <p><strong>Total (2 nights):</strong> ₹27,000</p>
+                            </div>
+                    </div>
+                </div>
+             </div>
+
+        <hr class="section-divider">
+
+        <div id="gulmarg" class="location-section">
+            <h3 class="location-title">Top Picks in Gulmarg</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/khyber.jpg" alt="The Khyber Himalayan Resort & Spa">
+                    <div class="card-content">
+                        <h3 class="hotel-name">The Khyber Resort (Gulmarg)</h3>
+                        <p class="hotel-desc">Upscale ski-in/ski-out hotel with dining & views of the Himalayas.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★★ (4.6/5)</p>
+                            <p><strong>Pricing:</strong> ₹66,324</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hotel-card luxury">
+                  <img src="../assets/images/heeven.jpg" alt="Heeven Retreat Gulmarg">
+                    <div class="card-content">
+                       <h3 class="hotel-name">Hotel Heeven Retreat (Gulmarg)</h3>
+                           <p class="hotel-desc">Experience luxury accommodation at Heeven Retreat featuring breathtaking snowy mountain views.</p>
+                            <div class="hotel-details">
+                             <p><strong>Rating:</strong> ★★★★★ (4.9/5)</p>
+                             <p><strong>Total (2 nights):</strong> ₹18,500</p>
+                            </div>
+                    </div>
+                </div>
+             </div>
+
+        <hr class="section-divider">
+
+        <div id="rishikesh" class="location-section">
+            <h3 class="location-title">Top Picks in Rishikesh</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/aloha.jpg" alt="Aloha on the Ganges Rishikesh">
+                    <div class="card-content">
+                        <h3 class="hotel-name">Aloha on the Ganges (Rishikesh)</h3>
+                        <p class="hotel-desc">A beautiful, serene resort located right on the banks of the Ganges, offering a perfect blend of nature and comfort.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★☆ (4.4/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹12,500</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div id="dharamshala" class="location-section">
+            <h3 class="location-title">Top Picks in Dharamshala</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/dscasa.jpg" alt="D's Casa Resort Dharamshala">
+                    <div class="card-content">
+                        <h3 class="hotel-name">D's Casa Resort (Dharamshala)</h3>
+                        <p class="hotel-desc">A premium boutique hotel offering majestic views of the Dhauladhar ranges and peaceful surroundings.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★☆ (4.5/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹12,000</p>
+                        </div>
+                    </div>
+                </div>
+             <div class="hotel-card luxury">
+                  <img src="../assets/images/rakkh.webp" alt="Rakkh Resort Dharamshala">
+                    <div class="card-content">
+                       <h3 class="hotel-name">Rakkh Resort (Dharamshala)</h3>
+                           <p class="hotel-desc">An experiential eco-resort nestled in the hills, perfect for nature walks and local authentic cuisine.</p>
+                            <div class="hotel-details">
+                             <p><strong>Rating:</strong> ★★★★★ (4.7/5)</p>
+                             <p><strong>Total (2 nights):</strong> ₹15,500</p>
+                            </div>
+                    </div>
+                </div>
+             </div>
+
+        <hr class="section-divider">
+
+        <div id="manali" class="location-section">
+            <h3 class="location-title">Top Picks in Manali</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/himalayan.webp" alt="The Himalayan Manali">
+                    <div class="card-content">
+                        <h3 class="hotel-name">The Himalayan (Manali)</h3>
+                        <p class="hotel-desc">A beautiful castle-style resort surrounded by apple orchards and snow-capped peaks.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★☆ (4.6/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹14,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div id="shimla" class="location-section">
+            <h3 class="location-title">Top Picks in Shimla</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/radisson.webp" alt="Radisson Jass Shimla">
+                    <div class="card-content">
+                        <h3 class="hotel-name">Radisson Jass (Shimla)</h3>
+                        <p class="hotel-desc">Elegant rooms with scenic valley views, conveniently located near Mall Road.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★☆ (4.3/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹13,500</p>
+                        </div>
+                    </div>
+                </div>
+            <div class="hotel-card luxury">
+                  <img src="../assets/images/snowvalley.webp" alt="Snow Valley Resorts Shimla">
+                    <div class="card-content">
+                       <h3 class="hotel-name">Snow Valley Resorts (Shimla)</h3>
+                           <p class="hotel-desc">A comfortable, centrally-heated resort offering panoramic views of the lush green pine forests.</p>
+                            <div class="hotel-details">
+                             <p><strong>Rating:</strong> ★★★★☆ (4.4/5)</p>
+                             <p><strong>Total (2 nights):</strong> ₹11,000</p>
+                            </div>
+                    </div>
+                </div>
+             </div>
+
+        <hr class="section-divider">
+
+        <div id="kasol" class="location-section">
+            <h3 class="location-title">Top Picks in Kasol</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/parvati.webp" alt="Parvati Kuteer kasol">
+                    <div class="card-content">
+                        <h3 class="hotel-name">Parvati Kuteer (Kasol)</h3>
+                        <p class="hotel-desc">Cozy wooden cottages right next to the Parvati River, offering a perfect bohemian escape.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★☆ (4.2/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹9,500</p>
+                        </div>
+                    </div>
+                </div>
+            <div class="hotel-card luxury">
+                  <img src="../assets/images/hosteller.webp" alt="The Hosteller kasol">
+                    <div class="card-content">
+                       <h3 class="hotel-name">The Hosteller (Kasol)</h3>
+                           <p class="hotel-desc">Premium private rooms in Kasol's best location with vibrant cafes and guided trek access.</p>
+                            <div class="hotel-details">
+                             <p><strong>Rating:</strong> ★★★★☆ (4.5/5)</p>
+                             <p><strong>Total (2 nights):</strong> ₹7,000</p>
+                        </div>
+                    </div>
+                </div>
+             </div>
+
+        <hr class="section-divider">
+
+        <div id="kufri" class="location-section">
+            <h3 class="location-title">Top Picks in Kufri</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/royaltulip.webp" alt="Royal Tulip Kufri">
+                    <div class="card-content">
+                        <h3 class="hotel-name">Royal Tulip (Kufri)</h3>
+                        <p class="hotel-desc">A grand luxury hotel offering a spectacular terrace pool and sweeping Himalayan valley views.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★★ (4.6/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹14,800</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div id="dehradun" class="location-section">
+            <h3 class="location-title">Top Picks in Dehradun</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/Seyfert Sarovar Premiere (Dehradun).webp" alt="Seyfert Sarovar Premiere Dehradun">
+                    <div class="card-content">
+                        <h3 class="hotel-name">Seyfert Sarovar Premiere (Dehradun)</h3>
+                        <p class="hotel-desc">A premium 5-star destination with top-notch amenities, fine dining, and excellent city connectivity.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★☆ (4.5/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹10,500</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div id="amritsar" class="location-section">
+            <h3 class="location-title">Top Picks in Amritsar</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/Taj Swarna (Amritsar).webp" alt="Taj Swarna Amritsar">
+                    <div class="card-content">
+                        <h3 class="hotel-name">Taj Swarna (Amritsar)</h3>
+                        <p class="hotel-desc">A stylish, contemporary hotel blending traditional Punjabi hospitality with world-class luxury.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★★ (4.8/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹15,000</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="hotel-card luxury">
+                  <img src="../assets/images/Ramada by Wyndham (Amritsar).webp" alt="Ramada by Wyndham Amritsar">
+                    <div class="card-content">
+                       <h3 class="hotel-name">Ramada by Wyndham (Amritsar)</h3>
+                           <p class="hotel-desc">Located close to the Golden Temple, featuring a rooftop pool and highly-rated local food.</p>
+                            <div class="hotel-details">
+                             <p><strong>Rating:</strong> ★★★★☆ (4.4/5)</p>
+                             <p><strong>Total (2 nights):</strong> ₹11,500</p>
+                        </div>
+                    </div>
+                </div>
+             </div>
+
+        <hr class="section-divider">
+
+        <div id="mussoorie" class="location-section">
+            <h3 class="location-title">Top Picks in Mussoorie</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/Jaypee Residency Manor (Mussoorie).webp" alt="Jaypee Residency Manor Mussoorie">
+                    <div class="card-content">
+                        <h3 class="hotel-name">Jaypee Residency Manor (Mussoorie)</h3>
+                        <p class="hotel-desc">Perched on a hilltop, offering 360-degree breathtaking views of the Doon Valley and Himalayas.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★☆ (4.5/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹16,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div id="nainital" class="location-section">
+            <h3 class="location-title">Top Picks in Nainital</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/The Naini Retreat (Nainital).webp" alt="The Naini Retreat Nainital">
+                    <div class="card-content">
+                        <h3 class="hotel-name">The Naini Retreat (Nainital)</h3>
+                        <p class="hotel-desc">A heritage hotel situated on the Ayarpata Slopes, providing a majestic view of the Naini Lake.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★☆ (4.3/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹13,500</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div id="spiti" class="location-section">
+            <h3 class="location-title">Top Picks in Spiti</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/Spiti Village Resort (Kaza).webp" alt="Spiti Village Resort (Kaza)">
+                    <div class="card-content">
+                        <h3 class="hotel-name">Spiti Village Resort (Kaza)</h3>
+                        <p class="hotel-desc">Eco-friendly traditional mud-crafted rooms keeping you warm amidst the high-altitude cold desert.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★☆ (4.6/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹10,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div id="auli" class="location-section">
+            <h3 class="location-title">Top Picks in Auli</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/Cliff Top Club (Auli).webp" alt="Cliff Top Club Auli">
+                    <div class="card-content">
+                        <h3 class="hotel-name">Cliff Top Club (Auli)</h3>
+                        <p class="hotel-desc">A high-altitude ski resort providing unmatched views of the Nanda Devi mountain range.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★☆ (4.2/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹15,500</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div id="jaisalmer" class="location-section">
+            <h3 class="location-title">Top Picks in Jaisalmer</h3>
+            <div class="hotels-grid">
+                <div class="hotel-card luxury">
+                    <img src="../assets/images/deserttulip.webp" alt="Desert Tulip Resort Jaisalmer">
+                    <div class="card-content">
+                        <h3 class="hotel-name">Desert Tulip Resort (Jaisalmer)</h3>
+                        <p class="hotel-desc">Experience royal Rajasthani architecture, a massive pool, and cultural folk performances.</p>
+                        <div class="hotel-details">
+                            <p><Strong>Rating:</Strong> ★★★★☆ (4.4/5)</p>
+                            <p><strong>Total (2 nights):</strong> ₹11,000</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="hotel-card luxury">
+                  <img src="../assets/images/Sujan The Serai (Jaisalmer).webp" alt="Sujan The Serai Jaisalmer">
+                    <div class="card-content">
+                       <h3 class="hotel-name">Sujan The Serai (Jaisalmer)</h3>
+                           <p class="hotel-desc">A luxury desert camp and spa offering an unforgettable stargazing and safari experience.</p>
+                            <div class="hotel-details">
+                             <p><strong>Rating:</strong> ★★★★★ (4.8/5)</p>
+                             <p><strong>Total (2 nights):</strong> ₹18,000</p>
+                        </div>
+                    </div>
+                </div>
+             </div>
+    </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 1. Saare zaruri elements ko pakdo
+      const checkinInput = document.getElementById('checkin');
+      const checkoutInput = document.getElementById('checkout');
+      const filterDropdown = document.getElementById('days-filter');
+      const searchBtn = document.querySelector('.search-btn');
+      const hotelCards = document.querySelectorAll('.hotel-card');
+      const hotelGrid = document.querySelector('.hotels-grid');
+
+      // 2. Page load hote hi base price (1 night) calculate karke chupa do
+      hotelCards.forEach(card => {
+        const priceParagraph = card.querySelectorAll('.hotel-details p')[1]; 
+        if(priceParagraph) {
+           let text = priceParagraph.innerText;
+           let priceParts = text.split(':'); 
+           if(priceParts.length > 1) {
+              let priceString = priceParts[1].replace(/[^0-9]/g, ''); 
+              let totalForTwoNights = parseInt(priceString);
+              if(!isNaN(totalForTwoNights)) {
+                 let pricePerNight = totalForTwoNights / 2; 
+                 priceParagraph.setAttribute('data-per-night', pricePerNight);
+              }
+           }
+        }
+      });
+
+      // 3. MAGIC FUNCTION: Check-out Date automatically set karna
+      function updateCheckoutDate() {
+          if (checkinInput.value) {
+              // User ki check-in date uthao
+              let checkinDate = new Date(checkinInput.value);
+              // Dropdown se din (nights) uthao
+              let nights = parseInt(filterDropdown.value); 
+
+              // Check-in date mein wo din jod (add kar) do
+              checkinDate.setDate(checkinDate.getDate() + nights);
+
+              // Date ko wapas us format mein banao jo HTML calendar samajhta hai (YYYY-MM-DD)
+              let year = checkinDate.getFullYear();
+              let month = String(checkinDate.getMonth() + 1).padStart(2, '0');
+              let day = String(checkinDate.getDate()).padStart(2, '0');
+
+              // Check-out box ke andar nikal kar daal do!
+              checkoutInput.value = `${year}-${month}-${day}`;
+          }
+      }
+
+      // Jab Check-in date change ho, tab Check-out update karo
+      checkinInput.addEventListener('change', updateCheckoutDate);
+      
+      // Jab Dropdown (Filter by Stay) change ho, tab bhi Check-out update karo
+      filterDropdown.addEventListener('change', updateCheckoutDate);
+
+
+      // 4. CHECK PRICES BUTTON KA KAAM
+      searchBtn.addEventListener('click', function() {
+          
+          // Agar check-in khali hai toh alert do
+          if (!checkinInput.value) {
+              alert("Karan bhai, please Check-in date select kariye!");
+              return; // Code aage mat badhao
+          }
+
+          let selectedNights = parseInt(filterDropdown.value);
+
+          // Saare cards ka price update karo
+          hotelCards.forEach(card => {
+            const priceParagraph = card.querySelectorAll('.hotel-details p')[1];
+            if(priceParagraph) {
+               let perNight = priceParagraph.getAttribute('data-per-night');
+               if(perNight) {
+                  let newTotal = perNight * selectedNights;
+                  let formattedPrice = newTotal.toLocaleString('en-IN');
+                  let nightText = selectedNights === 1 ? 'night' : 'nights';
+                  
+                  // Text change karke naya price dikhao
+                  priceParagraph.innerHTML = `<strong>Total (${selectedNights} ${nightText}):</strong> ₹${formattedPrice}`;
+               }
+            }
+         });
+
+         // Naya Feature: Button dabte hi screen naturally niche (hotels par) slide ho jayegi
+         hotelGrid.scrollIntoView({ behavior: 'smooth' });
+      });
+
+    });
+  </script>
+  </body>
+</html>

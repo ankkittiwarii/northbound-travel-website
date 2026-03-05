@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Northbound</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy: #1a242f; /* Dark sidebar color */
+            --brand-accent: #ff4d00; /* Adventurous orange */
+            --light-gray: #f9f9f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1050px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* Left Side: Your Business Info */
+        .sidebar {
+            flex: 1;
+            background-color: var(--brand-navy);
+            color: #fff;
+            padding: 60px 45px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar h1 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .sidebar p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-bottom: 45px;
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+        }
+
+        .contact-item label {
+            display: block;
+            color: var(--brand-accent);
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+
+        .contact-item a, .contact-item span {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        /* Right Side: User Inquiry Form */
+        .form-area {
+            flex: 1.4;
+            padding: 60px;
+        }
+
+        .form-area h2 {
+            font-size: 1.8rem;
+            color: var(--brand-navy);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1.5px solid #eee;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: #fafafa;
+            height: 180px;
+            resize: none;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--brand-accent);
+            background: #fff;
+        }
+
+        .btn-submit {
+            background-color: var(--brand-navy);
+            color: #fff;
+            border: none;
+            padding: 16px 35px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--brand-accent);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 850px) {
+            .container { flex-direction: column; }
+            .sidebar { padding: 40px; }
+            .form-area { padding: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <h1>Northbound.</h1>
+        <p>The ultimate travel experience starts with a conversation. Let us curate your next adventure.</p>
+        
+        <div class="contact-item">
+            <label>Email Us</label>
+            <a href="mailto:hello@northbound-travel.com">hello@northbound-travel.com</a>
+        </div>
+
+        <div class="contact-item">
+            <label>Visit Office</label>
+            <span>Sec-17, Chandigarh, India</span>
+        </div>
+
+        <div class="contact-item">
+            <label>Call Support</label>
+            <span>+91 98765 43210</span>
+        </div>
+    </div>
+
+    <div class="form-area">
+        <h2>Get in Touch</h2>
+        <form action="#">
+            <div class="form-group">
+                <label>How can we help you today?</label>
+                <textarea placeholder="Tell us about your dream destination (Leh, Manali, Spiti, etc.) or ask a question about your booking..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Send My Inquiry</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
