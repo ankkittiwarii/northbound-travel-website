@@ -1,6 +1,5 @@
 <?php
-
-include("../config/database.php");
+include "db.php";
 
 $name = $_POST['name'];
 $email = $_POST['email'];
@@ -11,6 +10,6 @@ VALUES('$name','$email','$password')";
 
 mysqli_query($conn,$sql);
 
-echo "Signup successful";
+echo "Signup Successful";
 
 ?>
