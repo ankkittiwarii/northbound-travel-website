@@ -1,16 +1,17 @@
 <?php
+
 include "db.php";
 
 $name = $_POST['name'];
-$email = $_POST['email'];
-$destination = $_POST['destination'];
-$date = $_POST['date'];
-$people = $_POST['people'];
+$phone = $_POST['phone'];
+$travel_date = $_POST['travel_date'];
+$travelers = $_POST['travelers'];
 
-$sql = "INSERT INTO booking(name,email,destination,date,people)
-VALUES('$name','$email','$destination','$date','$people')";
+$sql = "INSERT INTO bookings(name,phone,travel_date,travelers)
+VALUES('$name','$phone','$travel_date','$travelers')";
 
 mysqli_query($conn,$sql);
 
-echo "Booking Successful";
+header("Location: ../pages/booking.html?success=1");
+
 ?>
