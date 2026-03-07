@@ -9,8 +9,10 @@ $message = $_POST['message'];
 $sql = "INSERT INTO contact(name,email,message)
 VALUES('$name','$email','$message')";
 
-mysqli_query($conn,$sql);
-
-echo "Message Sent";
+if(mysqli_query($conn,$sql)){
+echo "Message Sent Successfully";
+}else{
+echo "Error sending message";
+}
 
 ?>

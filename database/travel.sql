@@ -1,0 +1,25 @@
+CREATE DATABASE travel;
+
+USE travel;
+
+CREATE TABLE users(
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100),
+email VARCHAR(100),
+password VARCHAR(100)
+);
+
+CREATE TABLE bookings(
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100),
+phone VARCHAR(20),
+travel_date DATE,
+travelers INT
+);
+
+CREATE TABLE contact(
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100),
+email VARCHAR(100),
+message TEXT
+);

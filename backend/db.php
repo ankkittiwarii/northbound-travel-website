@@ -1,9 +1,14 @@
 <?php
 
-$conn = mysqli_connect("localhost","root","","travel");
+$host="localhost";
+$user="root";
+$password="";
+$db="travel";
+
+$conn=mysqli_connect($host,$user,$password,$db);
 
 if(!$conn){
-die("Database connection failed");
+die("Database connection failed: ".mysqli_connect_error());
 }
 
 ?>
