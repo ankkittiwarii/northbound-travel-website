@@ -7,11 +7,22 @@ $phone = $_POST['phone'];
 $travel_date = $_POST['travel_date'];
 $travelers = $_POST['travelers'];
 
-$sql = "INSERT INTO bookings(name,phone,travel_date,travelers)
-VALUES('$name','$phone','$travel_date','$travelers')";
+if(empty($name) || empty($phone) || empty($travel_date)){
+echo "Please fill all fields";
+exit();
+}
 
-mysqli_query($conn,$sql);
+$sql = "INSERT INTO bookings (name,phone,travel_date,travelers)
+VALUES ('$name','$phone','$travel_date','$travelers')";
+
+if(mysqli_query($conn,$sql)){
 
 header("Location: ../pages/booking.html?success=1");
+
+}else{
+
+echo "Booking Failed";
+
+}
 
 ?>
