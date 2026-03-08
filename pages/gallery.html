@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northbound Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy: #1a242f;
+            --brand-accent: #ff4d00;
+        }
+
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: #f9f9f9; }
+
+        .gallery-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .gallery-header h2 {
+            font-size: 2.5rem;
+            color: var(--brand-navy);
+            margin-bottom: 10px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent, rgba(26, 36, 47, 0.9));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay h4 { margin: 0; font-size: 1.2rem; }
+        .overlay span { color: var(--brand-accent); font-size: 0.8rem; text-transform: uppercase; font-weight: bold; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="gallery-section">
+    <div class="gallery-header">
+        <h2>Explore the North</h2>
+        <p>From snow peaks to golden sands</p>
+    </div>
+
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="../assets/images/gulmarggallery.webp" alt="Gulmarg">
+            <div class="overlay"><span>Kashmir</span><h4>Gulmarg</h4></div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?w=500" alt="Ladakh">
+            <div class="overlay"><span>Himalayas</span><h4>Leh Ladakh</h4></div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="../assets/images/jaisalmergallery.jpg" alt="Jaisalmer">
+            <div class="overlay"><span>Rajasthan</span><h4>Jaisalmer</h4></div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="../assets/images/rishikeshgallery.webp" alt="Rishikesh">
+            <div class="overlay"><span>Spiritual</span><h4>Rishikesh</h4></div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=500" alt="Manali">
+            <div class="overlay"><span>Adventure</span><h4>Manali</h4></div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500" alt="Spiti">
+            <div class="overlay"><span>Remote</span><h4>Spiti Valley</h4></div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="../assets/images/dharamshalagallery.jpg" alt="Dharamshala">
+            <div class="overlay"><span>Peace</span><h4>Dharamshala</h4></div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="../assets/images/amritsargallery.webp" alt="Amritsar">
+            <div class="overlay"><span>Heritage</span><h4>Amritsar</h4></div>
+        </div>
+        
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=500" alt="Auli">
+            <div class="overlay"><span>Skiing</span><h4>Auli</h4></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

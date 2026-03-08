@@ -11,7 +11,7 @@ body {
 .background-wrapper {
     position: relative;
     overflow: hidden;
-    background-image: url(login1.jpg);
+    background-image: url(../images/travel-concept-with-elements-arrangement.jpg);
     background-size: cover;
     background-position: center 80%;
     display: flex;
