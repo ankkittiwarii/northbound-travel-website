@@ -9,6 +9,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 </head>
+
+<script>
+
+const urlParams = new URLSearchParams(window.location.search);
+
+if(urlParams.get('success')){
+alert("✅ Your booking request has been submitted!");
+}
+
+if(urlParams.get('error')){
+alert("❌ Booking failed. Please try again.");
+}
+
+</script>
+
 <body>
 
 <div class="booking-wrapper">
@@ -20,6 +35,8 @@
 <p>Enter your details to secure your spot.</p>
 
 <form id="proBookingForm" method="POST" action="../backend/booking.php">
+
+<input type="hidden" name="package" id="packageInput">
 
 <div class="input-group">
 <label>Full Name</label>
@@ -42,7 +59,7 @@
 
 <div class="input-group">
 <label>Number of Travelers</label>
-<input type="number" name="travelers" min="1" max="20" value="1">
+<input type="number" name="persons" min="1" max="20" value="1">
 </div>
 
 <button type="submit" class="pay-btn">Claim Deal Now</button>
@@ -124,6 +141,8 @@ document.getElementById('packageDetails').innerText = data.details;
 document.querySelector('.old-price').innerText = data.oldPrice;
 document.querySelector('.new-price').innerText = "₹" + data.newPrice + " / person";
 
+document.getElementById("packageInput").value = pkg;
+
 const perksList = document.querySelector('.perks');
 perksList.innerHTML = data.perks.map(p => `<li>✅ ${p}</li>`).join('');
 
@@ -135,3 +154,4 @@ perksList.innerHTML = data.perks.map(p => `<li>✅ ${p}</li>`).join('');
 
 </body>
 </html>
+```

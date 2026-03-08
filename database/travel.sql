@@ -10,12 +10,16 @@ password VARCHAR(255),
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE bookings(
+CREATE TABLE bookings (
 id INT AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(100),
+email VARCHAR(100),
 phone VARCHAR(20),
+destination VARCHAR(100),
+persons INT,
 travel_date DATE,
-travelers INT
+message TEXT,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE contact(
@@ -24,3 +28,12 @@ name VARCHAR(100),
 email VARCHAR(100),
 message TEXT
 );
+
+CREATE TABLE admin (
+id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(100),
+password VARCHAR(255)
+);
+
+INSERT INTO admin (username,password)
+VALUES ('admin', MD5('admin123'));
