@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Journal | Northbound</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy: #1a242f;
+            --brand-accent: #ff4d00;
+            --text-gray: #555;
+            --bg-light: #fdfdfd;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--brand-navy);
+            margin-bottom: 15px;
+            text-transform: capitalize;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Individual Card */
+        .blog-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #f0f0f0;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        .card-category {
+            color: var(--brand-accent);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .card-content h3 {
+            font-size: 1.4rem;
+            color: var(--brand-navy);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .card-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--brand-navy);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .read-more:hover {
+            color: var(--brand-accent);
+        }
+
+        .read-more::after {
+            content: ' →';
+            margin-left: 5px;
+            transition: margin-left 0.2s;
+        }
+
+        .read-more:hover::after {
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="section-header">
+        <h2>Adventure Journal</h2>
+        <p>Stories, tips, and inspiration from our latest journeys across the northern frontiers.</p>
+    </div>
+
+    <div class="blog-grid">
+        <div class="blog-card">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="card-content">
+                <span class="card-category">Destinations</span>
+                <h3>Beyond the Clouds: 7 Days in Leh Ladakh</h3>
+                <p>Discover the rugged beauty of high-altitude deserts and hidden monasteries in our ultimate guide.</p>
+                <a href="blog1.html" class="read-more">Read Story</a>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="card-content">
+                <span class="card-category">Travel Tips</span>
+                <h3>The Winter Packing List You Actually Need</h3>
+                <p>Don't overpack. We break down the essentials for staying warm and stylish in the Shimla snow.</p>
+                <a href="blog2.html" class="read-more">Read Story</a>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="card-content">
+                <span class="card-category">Luxury Travel</span>
+                <h3>Top 5 Heritage Stays in Rajasthan</h3>
+                <p>Experience the royal life. A curated list of palaces turned into premium hotels for your next stay.</p>
+                <a href="blog3.html" class="read-more">Read Story</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

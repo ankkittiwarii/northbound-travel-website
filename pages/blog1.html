@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond the Clouds | Northbound Adventure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; margin: 0; line-height: 1.8; color: #333; background: #fafafa; }
+        .hero { 
+            height: 60vh; 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1506461883276-594a12b11cf3?w=1200') center/cover;
+            display: flex; align-items: center; justify-content: center; color: white; 
+        }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin: 0; font-weight: 800; letter-spacing: -2px; }
+        .container { 
+            max-width: 800px; margin: -60px auto 100px; background: white; 
+            padding: 60px; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); 
+        }
+        .back-link { text-decoration: none; color: #ff4d00; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 30px; display: block; }
+        h2 { color: #1a242f; margin-top: 40px; font-size: 1.8rem; }
+        .itinerary-grid { background: #f4f7f8; padding: 30px; border-radius: 12px; border-left: 6px solid #ff4d00; margin: 30px 0; }
+        .itinerary-grid ul { list-style: none; padding: 0; }
+        .itinerary-grid li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .itinerary-grid li::before { content: '→'; position: absolute; left: 0; color: #ff4d00; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="hero"><h1>Beyond the Clouds</h1></div>
+    <div class="container">
+        <a href="blog.html" class="back-link">← Back to Journal</a>
+        <p>Ladakh is more than just a destination; it is a spiritual calling. At an altitude of 3,500 meters, this high-altitude desert offers a landscape so raw and beautiful it feels like another planet.</p>
+        
+        <h2>The Magical 7-Day Plan</h2>
+        <div class="itinerary-grid">
+            <ul>
+                <li><strong>Day 1-2:</strong> Rest and Acclimatization in Leh.</li>
+                <li><strong>Day 3:</strong> Crossing Khardung La to Nubra Valley.</li>
+                <li><strong>Day 4:</strong> Double-Humped Camel Safari in Hunder.</li>
+                <li><strong>Day 5:</strong> Majestic shores of Pangong Tso.</li>
+                <li><strong>Day 6-7:</strong> Monastery visits and return flight.</li>
+            </ul>
+        </div>
+        
+        <h2>Pro Traveler Tip</h2>
+        <p>Hydration is your best friend in the mountains. Drink plenty of water and avoid heavy physical activity for the first 48 hours to prevent altitude sickness.</p>
+    </div>
+</body>
+</html>
