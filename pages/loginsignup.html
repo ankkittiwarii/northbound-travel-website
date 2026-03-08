@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -125,6 +125,98 @@ window.open("https://www.facebook.com/login","_blank");
 
 function openApple() {
 window.open("https://appleid.apple.com","_blank");
+}
+
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Northbound</title>
+
+<link rel="stylesheet" href="../assets/css/loginsignup.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="left">
+<h1>Welcome to Northbound Travel</h1>
+<p>Your journey begins here</p>
+</div>
+
+<div class="right">
+
+<!-- LOGIN FORM -->
+
+<div id="loginForm" class="form active">
+
+<h2>Login</h2>
+
+<form action="../backend/login.php" method="POST">
+
+<input type="email" name="email" placeholder="Email" required>
+
+<input type="password" name="password" placeholder="Password" required>
+
+<button type="submit">Login</button>
+
+</form>
+
+<div class="switch">
+Don't have an account? 
+<a onclick="showSignup()">Sign Up</a>
+</div>
+
+</div>
+
+<!-- SIGNUP FORM -->
+
+<div id="signupForm" class="form">
+
+<h2>Create Account</h2>
+
+<form action="../backend/signup.php" method="POST">
+
+<input type="text" name="name" placeholder="Full Name" required>
+
+<input type="email" name="email" placeholder="Email" required>
+
+<input type="password" name="password" placeholder="Password" required>
+
+<button type="submit">Sign Up</button>
+
+</form>
+
+<div class="switch">
+Already have an account? 
+<a onclick="showLogin()">Login</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function showSignup(){
+document.getElementById("loginForm").classList.remove("active");
+document.getElementById("signupForm").classList.add("active");
+}
+
+function showLogin(){
+document.getElementById("signupForm").classList.remove("active");
+document.getElementById("loginForm").classList.add("active");
 }
 
 </script>
