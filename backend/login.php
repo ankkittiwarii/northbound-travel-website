@@ -12,20 +12,31 @@ echo "All fields required";
 exit();
 }
 
-$sql = "SELECT * FROM users 
-WHERE email='$email' AND password='$password'";
+$stmt = $conn->prepare("SELECT id,password FROM users WHERE email=?");
+$stmt->bind_param("s",$email);
+$stmt->execute();
 
-$result = mysqli_query($conn,$sql);
+$result = $stmt->get_result();
 
-if(mysqli_num_rows($result) > 0){
+if($result->num_rows == 1){
 
-$_SESSION['user'] = $email;
+$user = $result->fetch_assoc();
 
-header("Location: ../interface.html");
+if(password_verify($password,$user['password'])){
+
+$_SESSION['user_id'] = $user['id'];
+
+header("Location: ../index.html");
 
 }else{
 
-echo "Invalid Email or Password";
+echo "Wrong Password";
+
+}
+
+}else{
+
+echo "User not found";
 
 }
 
