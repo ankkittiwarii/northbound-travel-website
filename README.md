@@ -12,7 +12,9 @@ NorthBound is a travel and tourism website that allows users to explore travel d
 
 ## 📂 Project Structure
 
-northbound-travel-website
+```
+northbound-travel-website/
+
 │
 ├── index.html
 ├── README.md
@@ -62,6 +64,7 @@ northbound-travel-website
 │
 └── database/
     └── travel.sql
+```
 
 ## ✨ Features
 
