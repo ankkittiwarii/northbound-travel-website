@@ -12,28 +12,56 @@ NorthBound is a travel and tourism website that allows users to explore travel d
 
 ## 📂 Project Structure
 
-```
 northbound-travel-website
 │
 ├── index.html
-├── pages
+├── README.md
+│
+├── assets/
+│   ├── css/
+│   │   ├── style.css
+│   │   ├── activities.css
+│   │   ├── booking.css
+│   │   ├── destination.css
+│   │   ├── hotels.css
+│   │   ├── packages.css
+│   │   ├── loginsignup.css
+│   │   └── special.css
+│   │
+│   └── images/
+│        (all website images)
+│
+├── pages/
+│   ├── activities.html
+│   ├── blog.html
 │   ├── booking.html
 │   ├── contact.html
-│   ├── login.html
-│   └── signup.html
+│   ├── destination.html
+│   ├── gallery.html
+│   ├── hotels.html
+│   ├── loginsignup.html
+│   ├── packages.html
+│   └── special.html
 │
-├── assets
-│   ├── css
-│   ├── js
-│   └── images
+├── backend/
+│   ├── db.php
+│   ├── signup.php
+│   ├── login.php
+│   ├── booking.php
+│   └── contact.php
 │
-├── backend
-│   ├── auth
-│   ├── booking
-│   └── config
+├── admin/
+│   ├── login.php
+│   ├── login_process.php
+│   ├── dashboard.php
+│   ├── bookings.php
+│   ├── enquiries.php
+│   ├── delete_booking.php
+│   ├── delete_enquiry.php
+│   └── logout.php
 │
-└── database
-```
+└── database/
+    └── travel.sql
 
 ## ✨ Features
 
