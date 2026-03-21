@@ -1,7 +1,117 @@
-body {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    background: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.logo img{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+nav a {
+    position: relative;
+    margin-left: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    width: 100%;
+    color: orange;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+    margin-left: 30px;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: white; 
+    font-size: 16px; 
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    padding: 0px;
+    font-family: inherit;
+    vertical-align: middle;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: -50px;
+    background-color: #222; 
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    z-index: 1;
+    top: 100%;
+    border-radius: 4px; 
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    white-space: nowrap;
+    background: transparent;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* body {
     font-family: 'Poppins', sans-serif;
     background-color: #f0f2f5;
     margin: 0;
+} */
+ 
+body{
+    background: linear-gradient(135deg,#c5d7e0 0%,#e9dbce 50%,#e0caba 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .booking-wrapper {

@@ -1,0 +1,18 @@
+body { font-family: 'Inter', sans-serif; margin: 0; line-height: 1.8; color: #333; background: #fafafa; }
+        .hero { 
+            height: 60vh; 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1506461883276-594a12b11cf3?w=1200') center/cover;
+            display: flex; align-items: center; justify-content: center; color: white; 
+        }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin: 0; font-weight: 800; letter-spacing: -2px; }
+        .container { 
+            max-width: 800px; margin: -60px auto 100px; background: white; 
+            padding: 60px; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); 
+        }
+        .back-link { text-decoration: none; color: #ff4d00; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 30px; display: block; }
+        h2 { color: #1a242f; margin-top: 40px; font-size: 1.8rem; }
+        .itinerary-grid { background: #f4f7f8; padding: 30px; border-radius: 12px; border-left: 6px solid #ff4d00; margin: 30px 0; }
+        .itinerary-grid ul { list-style: none; padding: 0; }
+        .itinerary-grid li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .itinerary-grid li::before { content: '→'; position: absolute; left: 0; color: #ff4d00; font-weight: bold; }

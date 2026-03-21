@@ -1,3 +1,8 @@
+:root {
+        --brand-navy: #1a242f;
+        --brand-accent: #ff4d00;
+    }
+
 * {
     margin: 0;
     padding: 0;
@@ -100,149 +105,59 @@ nav a:hover {
     display: block;
 }
 
-/* *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-} */
+        .faq-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+        }
 
-/* BODY */
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 50px;
+        }
 
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-position:relative;
-overflow:hidden;
-}
+        .faq-item {
+            background: #fff;
+            border: 1px solid #eee;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
 
-/* BLUR BACKGROUND */
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--brand-navy);
+            background: #fdfdfd;
+        }
 
-body::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background-image:url("../images/Login1.jpg");
-background-size:cover;
-background-position:center;
-filter:blur(6px);
-z-index:-1;
-}
+        .faq-question:hover {
+            background: #f4f7f8;
+        }
 
-/* MAIN CONTAINER */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: #fff;
+        }
 
-.container{
-width:900px;
-height:520px;
-background:white;
-border-radius:12px;
-display:flex;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(236, 104, 4, 0.675);
-}
+        .faq-answer p {
+            padding: 20px;
+            margin: 0;
+            color: #666;
+            line-height: 1.6;
+            border-top: 1px solid #eee;
+        }
 
-/* LEFT SIDE */
-
-.left{
-flex:1;
-background:url('../images/backgroundLogin.jfif') center/cover;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-color:white;
-text-align:center;
-padding:30px;
-}
-
-.left h1{
-font-size:32px;
-margin-bottom:10px;
-}
-
-.left p{
-font-size:16px;
-}
-
-/* RIGHT SIDE */
-
-.right{
-flex:1;
-padding:40px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-}
-
-.right h2{
-margin-bottom:20px;
-color:#1a242f;
-}
-
-input{
-width:100%;
-padding:12px;
-margin-bottom:15px;
-border:1px solid #ddd;
-border-radius:6px;
-font-size:14px;
-}
-
-button{
-width:100%;
-padding:12px;
-border:none;
-background:#1a242f;
-color:white;
-font-weight:600;
-border-radius:6px;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-background:#ff4d00;
-}
-
-.switch{
-margin-top:15px;
-text-align:center;
-font-size:14px;
-}
-
-.switch a{
-color:#ff4d00;
-text-decoration:none;
-font-weight:600;
-cursor:pointer;
-}
-
-/* FORM SWITCH */
-
-.form{
-display:none;
-}
-
-.form.active{
-display:block;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:850px){
-
-.container{
-flex-direction:column;
-height:auto;
-}
-
-.left{
-height:200px;
-}
-
-}
+        /* Logic for opening (via Checkbox Hack) */
+        .faq-input { display: none; }
+        .faq-input:checked ~ .faq-answer { max-height: 200px; }
+        .faq-input:checked ~ .faq-question { color: var(--brand-accent); }
