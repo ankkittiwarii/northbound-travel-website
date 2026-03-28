@@ -6,35 +6,33 @@
 <title>Login | Northbound</title>
 
 <link rel="stylesheet" href="../assets/css/loginsignup.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <header>
-        <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
-        <nav>
-            <!-- <a href="../pages/loginsignup.html">Login</a> -->
-            <a href="../index.html">Home</a>
-            <a href="../pages/destination.html">Destinations</a>
-            <a href="../pages/Hotels.html">Hotels</a>
-            <a href="../pages/activities.html">Activities</a>
-            <a href="../pages/contact.html">Contact</a>
-            <a href="../pages/packages.html">Packages</a>
-            <a href="../pages/booking.html">Bookings</a>
+<header>
+    <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../pages/destination.html">Destinations</a>
+        <a href="../pages/Hotels.html">Hotels</a>
+        <a href="../pages/activities.html">Activities</a>
+        <a href="../pages/contact.html">Contact</a>
+        <a href="../pages/packages.html">Packages</a>
+        <a href="../pages/booking.html">Bookings</a>
 
-            <div class="dropdown">
-                <button class="dropbtn">More ▼</button>
-                <div class="dropdown-content">
-                    <a href="../pages/Special.html">Special Offers</a>
-                    <a href="../pages/blog.html">Blogs</a>
-                    <a href="../pages/faq.html">FAQs</a>
-                    <a href="../pages/gallery.html">Gallery</a>
-                </div>
+        <div class="dropdown">
+            <button class="dropbtn">More ▼</button>
+            <div class="dropdown-content">
+                <a href="../pages/Special.html">Special Offers</a>
+                <a href="../pages/blog.html">Blogs</a>
+                <a href="../pages/faq.html">FAQs</a>
+                <a href="../pages/gallery.html">Gallery</a>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
 <div class="container">
 
@@ -54,8 +52,10 @@
 <form action="../backend/login.php" method="POST">
 
 <input type="email" name="email" placeholder="Email" required>
-
 <input type="password" name="password" placeholder="Password" required>
+
+<!-- 🔥 IMPORTANT: redirect hidden field -->
+<input type="hidden" name="redirect" id="redirectInput">
 
 <button type="submit">Login</button>
 
@@ -77,9 +77,7 @@ Don't have an account?
 <form action="../backend/signup.php" method="POST">
 
 <input type="text" name="name" placeholder="Full Name" required>
-
 <input type="email" name="email" placeholder="Email" required>
-
 <input type="password" name="password" placeholder="Password" required>
 
 <button type="submit">Sign Up</button>
@@ -94,11 +92,11 @@ Already have an account?
 </div>
 
 </div>
-
 </div>
 
 <script>
 
+// form toggle
 function showSignup(){
 document.getElementById("loginForm").classList.remove("active");
 document.getElementById("signupForm").classList.add("active");
@@ -107,6 +105,14 @@ document.getElementById("signupForm").classList.add("active");
 function showLogin(){
 document.getElementById("signupForm").classList.remove("active");
 document.getElementById("loginForm").classList.add("active");
+}
+
+// 🔥 REDIRECT FIX (MOST IMPORTANT)
+const params = new URLSearchParams(window.location.search);
+const redirect = params.get("redirect");
+
+if(redirect){
+    document.getElementById("redirectInput").value = redirect;
 }
 
 </script>
