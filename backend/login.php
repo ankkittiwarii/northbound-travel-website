@@ -1,37 +1,43 @@
 <?php
+session_start();
+
 include "db.php";
 
-$name = trim($_POST['name']);
-$email = trim($_POST['email']);
-$password = $_POST['password'];
+$email = $_POST['email'] ?? '';
+$password = $_POST['password'] ?? '';
+$redirect = $_POST['redirect'] ?? '';
 
-if(empty($name) || empty($email) || empty($password)){
+if(empty($email) || empty($password)){
     echo "All fields required";
     exit();
 }
 
-/* check duplicate email */
-$check = $conn->prepare("SELECT id FROM users WHERE email=?");
-$check->bind_param("s",$email);
-$check->execute();
-$result = $check->get_result();
+$stmt = $conn->prepare("SELECT id,password FROM users WHERE email=?");
+$stmt->bind_param("s",$email);
+$stmt->execute();
 
-if($result->num_rows > 0){
-    echo "Email already registered";
-    exit();
-}
+$result = $stmt->get_result();
 
-/* password hash */
-$hashed_password = password_hash($password,PASSWORD_DEFAULT);
+if($result->num_rows == 1){
 
-/* insert user */
-$stmt = $conn->prepare("INSERT INTO users(name,email,password) VALUES(?,?,?)");
-$stmt->bind_param("sss",$name,$email,$hashed_password);
+    $user = $result->fetch_assoc();
 
-if($stmt->execute()){
-    header("Location: ../pages/loginsignup.html");
-    exit();
+    if(password_verify($password,$user['password'])){
+
+        $_SESSION['user_id'] = $user['id'];
+
+        if(!empty($redirect)){
+            header("Location: ../pages/" . $redirect);
+        } else {
+            header("Location: ../index.html");
+        }
+        exit();
+
+    } else {
+        echo "Wrong Password";
+    }
+
 } else {
-    echo "Signup failed";
+    echo "User not found";
 }
 ?>
