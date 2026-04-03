@@ -42,8 +42,9 @@ alert("❌ Booking failed. Please try again.");
             <a href="../pages/destination.html">Destinations</a>
             <a href="../pages/Hotels.html">Hotels</a>
             <a href="../pages/activities.html">Activities</a>
-            <a href="../pages/contact.html">Contact</a>
             <a href="../pages/packages.html">Packages</a>
+            <!-- <a href="../pages/booking.php" onclick="checkLogin('booking.php')">Bookings</a> -->
+            <a href="../pages/contact.html" onclick="checkLogin('contact.html')">Contact</a>
 
             <div class="dropdown">
                 <button class="dropbtn">More ▼</button>
