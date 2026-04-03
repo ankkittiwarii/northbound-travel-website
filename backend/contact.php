@@ -14,16 +14,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $email = trim($_POST['email']);
     $message = trim($_POST['message']);
 
+    // 🔥 VALIDATION
     if(empty($name) || empty($email) || empty($message)){
-        echo "Please fill all fields";
+        header("Location: ../pages/contact.html?error=empty");
         exit();
     }
 
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        echo "Invalid email format";
+        header("Location: ../pages/contact.html?error=invalid_email");
         exit();
     }
 
+    // 🔥 INSERT
     $stmt = $conn->prepare("INSERT INTO contact (name,email,message) VALUES (?,?,?)");
     $stmt->bind_param("sss",$name,$email,$message);
 
@@ -31,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         header("Location: ../pages/contact.html?success=1");
         exit();
     } else {
-        header("Location: ../pages/contact.html?error=1");
+        header("Location: ../pages/contact.html?error=failed");
         exit();
     }
 }
