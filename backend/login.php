@@ -8,7 +8,7 @@ $password = $_POST['password'] ?? '';
 $redirect = $_POST['redirect'] ?? '';
 
 if(empty($email) || empty($password)){
-    echo "All fields required";
+    header("Location: ../pages/loginsignup.html?error=empty");
     exit();
 }
 
@@ -34,10 +34,12 @@ if($result->num_rows == 1){
         exit();
 
     } else {
-        echo "Wrong Password";
+        header("Location: ../pages/loginsignup.html?error=wrongpass");
+        exit();
     }
 
 } else {
-    echo "User not found";
+    header("Location: ../pages/loginsignup.html?error=nouser");
+    exit();
 }
 ?>

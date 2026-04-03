@@ -1,13 +1,20 @@
 <?php
 
 if(session_status() === PHP_SESSION_NONE){
-session_start();
+    session_start();
 }
 
 if(!isset($_SESSION['admin'])){
-header("Location: login.php");
-exit();
+    header("Location: login.php");
+    exit();
 }
+
+include "../backend/db.php";
+
+// 🔥 DATA FETCH (stats)
+$totalBookings = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM bookings"))['total'];
+$totalUsers = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM users"))['total'];
+$totalEnquiries = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM contact"))['total'];
 
 ?>
 
@@ -62,6 +69,28 @@ box-shadow:0 5px 10px rgba(0,0,0,0.1);
 margin-bottom:20px;
 }
 
+/* 🔥 NEW STATS CARDS */
+.stats{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.stat-box{
+flex:1;
+min-width:200px;
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.stat-box h2{
+margin:10px 0;
+color:#ff4d00;
+}
+
 </style>
 
 </head>
@@ -84,6 +113,26 @@ margin-bottom:20px;
 <div class="card">
 <h2>Admin Dashboard</h2>
 <p>Welcome Admin 👋</p>
+</div>
+
+<!-- 🔥 STATS SECTION -->
+<div class="stats">
+
+<div class="stat-box">
+<h3>Total Bookings</h3>
+<h2><?php echo $totalBookings; ?></h2>
+</div>
+
+<div class="stat-box">
+<h3>Total Users</h3>
+<h2><?php echo $totalUsers; ?></h2>
+</div>
+
+<div class="stat-box">
+<h3>Total Enquiries</h3>
+<h2><?php echo $totalEnquiries; ?></h2>
+</div>
+
 </div>
 
 <div class="card">

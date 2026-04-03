@@ -107,12 +107,34 @@ document.getElementById("signupForm").classList.remove("active");
 document.getElementById("loginForm").classList.add("active");
 }
 
-// 🔥 REDIRECT FIX (MOST IMPORTANT)
+// redirect handle
 const params = new URLSearchParams(window.location.search);
 const redirect = params.get("redirect");
 
 if(redirect){
     document.getElementById("redirectInput").value = redirect;
+}
+
+// 🔥 ERROR HANDLING (ADD THIS)
+const error = params.get("error");
+
+if(error === "empty"){
+    alert("All fields are required ⚠️");
+}
+
+if(error === "wrongpass"){
+    alert("Wrong Password ❌");
+}
+
+if(error === "nouser"){
+    alert("User not found ❌");
+}
+
+// success
+const success = params.get("success");
+
+if(success === "signup"){
+    alert("Signup successful ✅ Please login");
 }
 
 </script>

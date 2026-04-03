@@ -7,8 +7,8 @@ $email = trim($_POST['email']);
 $password = $_POST['password'];
 
 if(empty($name) || empty($email) || empty($password)){
-echo "All fields required";
-exit();
+    header("Location: ../pages/loginsignup.html?error=empty");
+    exit();
 }
 
 /* check duplicate email */
@@ -19,8 +19,8 @@ $check->execute();
 $result = $check->get_result();
 
 if($result->num_rows > 0){
-echo "Email already registered";
-exit();
+    header("Location: ../pages/loginsignup.html?error=email_exists");
+    exit();
 }
 
 /* password hash */
@@ -33,13 +33,10 @@ $stmt = $conn->prepare("INSERT INTO users(name,email,password) VALUES(?,?,?)");
 $stmt->bind_param("sss",$name,$email,$hashed_password);
 
 if($stmt->execute()){
-
-header("Location: ../pages/loginsignup.html");
-
+    header("Location: ../pages/loginsignup.html?success=signup");
+    exit();
 }else{
-
-echo "Signup failed";
-
+    header("Location: ../pages/loginsignup.html?error=failed");
+    exit();
 }
-
 ?>
