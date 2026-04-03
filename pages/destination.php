@@ -37,6 +37,20 @@
 
     <div id="destinations-container" class="destinations-grid"></div>
     <script>
+
+function checkLogin(page){
+
+    const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
+
+    if(isLoggedIn === "yes"){
+        window.location.href = page;
+    } else {
+        if(confirm("⚠️ Login required to continue")){
+            window.location.href = "pages/loginsignup.html?redirect=" + page;
+        }
+    }
+}
+        
         const destinationsData=[
             {
                 id: 1,

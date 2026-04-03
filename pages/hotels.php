@@ -457,6 +457,20 @@
              </div>
     </section>
   <script>
+    
+function checkLogin(page){
+
+    const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
+
+    if(isLoggedIn === "yes"){
+        window.location.href = page;
+    } else {
+        if(confirm("⚠️ Login required to continue")){
+            window.location.href = "pages/loginsignup.html?redirect=" + page;
+        }
+    }
+}
+
     document.addEventListener('DOMContentLoaded', function() {
       // 1. Saare zaruri elements ko pakdo
       const checkinInput = document.getElementById('checkin');

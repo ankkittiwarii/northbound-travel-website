@@ -8,27 +8,6 @@
 <link rel="stylesheet" href="../assets/css/contact.css">
 </head>
 
-<script>
-
-const urlParams = new URLSearchParams(window.location.search);
-
-if(urlParams.get('success')){
-alert("✅ Your message has been sent successfully!");
-}
-
-if(urlParams.get('error') === "empty"){
-alert("⚠️ Please fill all fields");
-}
-
-if(urlParams.get('error') === "invalid_email"){
-alert("❌ Invalid email format");
-}
-
-if(urlParams.get('error') === "failed"){
-alert("❌ Something went wrong. Please try again.");
-}
-
-</script>
 
 <body>
     <header>
@@ -99,6 +78,38 @@ alert("❌ Something went wrong. Please try again.");
 </div>
 
 </div>
+<script>
+    function checkLogin(page){
+        
+    const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
+    
+    if(isLoggedIn === "yes"){
+        window.location.href = page;
+    } else {
+        if(confirm("⚠️ Login required to continue")){
+            window.location.href = "pages/loginsignup.html?redirect=" + page;
+        }
+    }
+}
 
+const urlParams = new URLSearchParams(window.location.search);
+
+if(urlParams.get('success')){
+alert("✅ Your message has been sent successfully!");
+}
+
+if(urlParams.get('error') === "empty"){
+alert("⚠️ Please fill all fields");
+}
+
+if(urlParams.get('error') === "invalid_email"){
+alert("❌ Invalid email format");
+}
+
+if(urlParams.get('error') === "failed"){
+alert("❌ Something went wrong. Please try again.");
+}
+
+</script>
 </body>
 </html>
