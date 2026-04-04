@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,52 +10,62 @@
     <title>Destination</title>
     <link rel="stylesheet" href="../assets/css/destination.css">
 </head>
+
 <body>
-    <header>
-        <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
-        <nav>
-            <a href="../index.php">Home</a>
-            <a href="../pages/loginsignup.php">Login</a>
-            <!-- <a href="../pages/destination.php">Destinations</a> -->
-            <a href="../pages/Hotels.php">Hotels</a>
-            <a href="../pages/activities.php">Activities</a>
-            <a href="../pages/packages.php">Packages</a>
-            <a href="../pages/booking.php" onclick="checkLogin('booking.php')">Bookings</a>
-            <a href="../pages/contact.php" onclick="checkLogin('contact.php')">Contact</a>
-            
-            <div class="dropdown">
-                <button class="dropbtn">More ▼</button>
-                <div class="dropdown-content">
-                    <a href="../pages/Special.php">Special Offers</a>
-                    <a href="../pages/blog.php">Blogs</a>
-                    <a href="../pages/faq.php">FAQs</a>
-                    <a href="../pages/gallery.php">Gallery</a>
-                </div>
+
+<header>
+    <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
+    <nav>
+        <a href="../index.php">Home</a>
+        <a href="../pages/loginsignup.php">Login</a>
+        <a href="../pages/Hotels.php">Hotels</a>
+        <a href="../pages/activities.php">Activities</a>
+        <a href="../pages/packages.php">Packages</a>
+
+        <!-- 🔥 FIXED -->
+        <a href="#" onclick="checkLogin('booking.php')">Bookings</a>
+        <a href="#" onclick="checkLogin('contact.php')">Contact</a>
+        
+        <div class="dropdown">
+            <button class="dropbtn">More ▼</button>
+            <div class="dropdown-content">
+                <a href="../pages/Special.php">Special Offers</a>
+                <a href="../pages/blog.php">Blogs</a>
+                <a href="../pages/faq.php">FAQs</a>
+                <a href="../pages/gallery.php">Gallery</a>
             </div>
-        </nav>
-    </header>
-    <section class="destination-section">
-    <div id="section-header" style="margin-top: 50px;"><h2>Explore Popular Destinations</h2>
-    <p style="margin-top: 10px; margin-bottom: 10px;">Explore the rugged beauty, serrne valleys, and cultural heritage of Northern India.</p>
-    </div>
+        </div>
+    </nav>
+</header>
 
-    <div id="destinations-container" class="destinations-grid"></div>
-    <script>
+<section class="destination-section">
+<div id="section-header" style="margin-top: 50px;">
+    <h2>Explore Popular Destinations</h2>
+    <p style="margin-top: 10px; margin-bottom: 10px;">
+        Explore the rugged beauty, serene valleys, and cultural heritage of Northern India.
+    </p>
+</div>
 
+<div id="destinations-container" class="destinations-grid"></div>
+
+<script>
+
+// 🔥 LOGIN CHECK
 function checkLogin(page){
 
     const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
 
     if(isLoggedIn === "yes"){
-        window.location.href = page;
+        window.location.href = "../pages/" + page;
     } else {
         if(confirm("⚠️ Login required to continue")){
             window.location.href = "../pages/loginsignup.php?redirect=" + page;
         }
     }
 }
-        
-        const destinationsData=[
+
+// 🔥 DESTINATION DATA
+const destinationsData = [
             {
                 id: 1,
                 title: "Gulmarg",
@@ -229,6 +243,7 @@ function checkLogin(page){
             });
         }
         document.addEventListener('DOMContentLoaded',loadDestinations);
-    </script>
+</script>
+
 </body>
 </html>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html>
 <head>
     <title>NorthBound</title>
@@ -14,8 +18,10 @@
             <a href="pages/Hotels.php">Hotels</a>
             <a href="pages/activities.php">Activities</a>
             <a href="pages/packages.php">Packages</a>
-            <a href="pages/booking.php" onclick="checkLogin('booking.php')">Bookings</a>
-            <a href="pages/contact.php" onclick="checkLogin('contact.php')">Contact</a>
+
+            <!-- 🔥 FIXED -->
+            <a href="#" onclick="checkLogin('pages/booking.php')">Bookings</a>
+            <a href="#" onclick="checkLogin('pages/contact.php')">Contact</a>
 
             <div class="dropdown">
                 <button class="dropbtn">More ▼</button>
@@ -28,6 +34,7 @@
             </div>
         </nav>
     </header>
+
     <section class="mount">
         <div class="mount-content">
             <h2>Why Travel With NorthBound?</h2>
@@ -37,15 +44,16 @@
                 Whether it's serene valleys, snowy peaks, or cultural heritage, we ensure every moment feels
                 extraordinary.
             </p>
-            <section>
-                <div class="buttons">
-                    <button class="btn1" onclick="window.open('pages/packages.php')">View Packages</button>
-                    <button class="btn2" onclick="window.open('pages/destination.php')">Explore Destinations</button>
-                </div>
+
+            <div class="buttons">
+                <button class="btn1" onclick="window.open('pages/packages.php')">View Packages</button>
+                <button class="btn2" onclick="window.open('pages/destination.php')">Explore Destinations</button>
+            </div>
         </div>
     </section>
 
 <script>       
+
 function checkLogin(page){
 
     const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
@@ -54,33 +62,34 @@ function checkLogin(page){
         window.location.href = page;
     } else {
         if(confirm("⚠️ Login required to continue")){
-            window.location.href = "pages/loginsignup.php?redirect=" + page;
+            window.location.href = "pages/loginsignup.php?redirect=" + page.split('/').pop();
         }
     }
 }
 
-        const images = [
-            "assets/images/mountainimage.jpg",
-            "assets/images/mountainimage1.jpg",
-            "assets/images/mountainimage2.jpg",
-            "assets/images/mountainimage3.jpg"
-        ];
+const images = [
+    "assets/images/mountainimage.jpg",
+    "assets/images/mountainimage1.jpg",
+    "assets/images/mountainimage2.jpg",
+    "assets/images/mountainimage3.jpg"
+];
 
-        let i = 0;
-        const mount = document.querySelector(".mount");
+let i = 0;
+const mount = document.querySelector(".mount");
 
-        function cbground() {
-            mount.style.backgroundImage = "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('" + images[i] + "')";
+function cbground() {
+    mount.style.backgroundImage = "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('" + images[i] + "')";
+    mount.style.backgroundSize = "cover";
+    mount.style.backgroundPosition = "center";
+    i++;
+    if (i >= images.length) {
+        i = 0;
+    }
+}
 
-            mount.style.backgroundSize = "cover";
-            mount.style.backgroundPosition = "center";
-            i++;
-            if (i >= images.length) {
-                i = 0;
-            }
-        }
-        cbground();
-        setInterval(cbground, 5000);
+cbground();
+setInterval(cbground, 5000);
+
 </script>
 
 </body>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,29 +14,32 @@
 </head>
 
 <body>
+
 <header>
-        <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
-        <nav>
-            <a href="../index.php">Home</a>
-            <!-- <a href="../pages/loginsignup.php">Login</a> -->
-            <a href="../pages/destination.php">Destinations</a>
-            <a href="../pages/Hotels.php">Hotels</a>
-            <a href="../pages/activities.php">Activities</a>
-            <a href="../pages/packages.php">Packages</a>
-            <a href="../pages/booking.php" onclick="checkLogin('booking.php')">Bookings</a>
-            <a href="../pages/contact.php" onclick="checkLogin('contact.php')">Contact</a>
-            
-            <div class="dropdown">
-                <button class="dropbtn">More ▼</button>
-                <div class="dropdown-content">
-                    <a href="../pages/Special.php">Special Offers</a>
-                    <a href="../pages/blog.php">Blogs</a>
-                    <a href="../pages/faq.php">FAQs</a>
-                    <a href="../pages/gallery.php">Gallery</a>
-                </div>
+    <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
+    <nav>
+        <a href="../index.php">Home</a>
+        <a href="../pages/destination.php">Destinations</a>
+        <a href="../pages/Hotels.php">Hotels</a>
+        <a href="../pages/activities.php">Activities</a>
+        <a href="../pages/packages.php">Packages</a>
+
+        <!-- 🔥 FIXED -->
+        <a href="#" onclick="checkLogin('booking.php')">Bookings</a>
+        <a href="#" onclick="checkLogin('contact.php')">Contact</a>
+        
+        <div class="dropdown">
+            <button class="dropbtn">More ▼</button>
+            <div class="dropdown-content">
+                <a href="../pages/Special.php">Special Offers</a>
+                <a href="../pages/blog.php">Blogs</a>
+                <a href="../pages/faq.php">FAQs</a>
+                <a href="../pages/gallery.php">Gallery</a>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
+
 <div class="container">
 
 <div class="left">
@@ -53,7 +60,6 @@
 <input type="email" name="email" placeholder="Email" required>
 <input type="password" name="password" placeholder="Password" required>
 
-<!-- 🔥 IMPORTANT: redirect hidden field -->
 <input type="hidden" name="redirect" id="redirectInput">
 
 <button type="submit">Login</button>
@@ -94,19 +100,20 @@ Already have an account?
 </div>
 
 <script>
+
+// 🔥 LOGIN CHECK
 function checkLogin(page){
 
     const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
 
     if(isLoggedIn === "yes"){
-        window.location.href = page;
+        window.location.href = "../pages/" + page;
     } else {
         if(confirm("⚠️ Login required to continue")){
             window.location.href = "../pages/loginsignup.php?redirect=" + page;
         }
     }
 }
-
 
 // form toggle
 function showSignup(){
@@ -127,7 +134,7 @@ if(redirect){
     document.getElementById("redirectInput").value = redirect;
 }
 
-// 🔥 ERROR HANDLING (ADD THIS)
+// 🔥 ERROR HANDLING
 const error = params.get("error");
 
 if(error === "empty"){
@@ -140,6 +147,10 @@ if(error === "wrongpass"){
 
 if(error === "nouser"){
     alert("User not found ❌");
+}
+
+if(error === "email_exists"){
+    alert("Email already registered ⚠️");
 }
 
 // success

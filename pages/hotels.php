@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +21,9 @@
             <!-- <a href="../pages/Hotels.php">Hotels</a> -->
             <a href="../pages/activities.php">Activities</a>
             <a href="../pages/packages.php">Packages</a>
-            <a href="../pages/booking.php" onclick="checkLogin('booking.php')">Bookings</a>
-            <a href="../pages/contact.php" onclick="checkLogin('contact.php')">Contact</a>
-            
+            <a href="#" onclick="checkLogin('booking.php')">Bookings</a>
+            <a href="#" onclick="checkLogin('contact.php')">Contact</a>
+
             <div class="dropdown">
                 <button class="dropbtn">More ▼</button>
                 <div class="dropdown-content">
@@ -456,20 +461,23 @@
                 </div>
              </div>
     </section>
-  <script>
+  
     
+<script>
+
 function checkLogin(page){
 
     const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
 
     if(isLoggedIn === "yes"){
-        window.location.href = page;
+        window.location.href = "../pages/" + page;
     } else {
         if(confirm("⚠️ Login required to continue")){
             window.location.href = "../pages/loginsignup.php?redirect=" + page;
         }
     }
 }
+
 
     document.addEventListener('DOMContentLoaded', function() {
       // 1. Saare zaruri elements ko pakdo

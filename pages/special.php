@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +21,8 @@
             <a href="../pages/Hotels.php">Hotels</a>
             <a href="../pages/activities.php">Activities</a>
             <a href="../pages/packages.php">Packages</a>
-            <a href="../pages/booking.php" onclick="checkLogin('booking.php')">Bookings</a>
-            <a href="../pages/contact.php" onclick="checkLogin('contact.php')">Contact</a>
+            <a href="#" onclick="checkLogin('booking.php')">Bookings</a>
+            <a href="#" onclick="checkLogin('contact.php')">Contact</a>
             
             <div class="dropdown">
                 <button class="dropbtn">More ▼</button>
@@ -45,7 +48,7 @@
         <div class="badge discount-badge">Save 20%</div>
         <h3>Himalayan Retreat</h3>
         <p>Experience the serene snow-capped peaks of Manali and Shimla. Perfect for a rejuvenating weekend getaway.</p>
-        <button class="offer-btn" onclick="window.open('packages.html', '_blank')">View Package</button>
+        <button class="offer-btn" onclick="window.open('packages.php')">View Package</button>
       </div>
 
       <!-- <div class="offer-card highlight-card">
@@ -62,14 +65,14 @@
         <p>Camp under the stars in Jaisalmer. Includes exclusive desert safari, camel rides, and cultural nights.</p>
         <div class="timer">Ends in: <span>2d 14h 30m</span></div>
         
-        <button class="offer-btn primary-btn" onclick="window.open('booking.html', '_blank')">Claim Deal</button>
+        <button class="offer-btn primary-btn" onclick="window.open('booking.php')">Claim Deal</button>
     </div>
 
       <div class="offer-card">
         <div class="badge group-badge">15% Off</div>
         <h3>Ladakh Expedition</h3>
         <p>Gather your crew! Book a group of 4 or more for the ultimate Leh Ladakh road trip and unlock special perks.</p>
-        <button class="offer-btn" onclick="window.open('contact.html','_blank')">Contact Us</button>
+        <button class="offer-btn" onclick="window.open('contact.php')">Contact Us</button>
       </div>
 
     </div>
@@ -82,18 +85,20 @@
   </div>
 </section>
 <script>
+
 function checkLogin(page){
 
     const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
 
     if(isLoggedIn === "yes"){
-        window.location.href = page;
+        window.location.href = "../pages/" + page;
     } else {
         if(confirm("⚠️ Login required to continue")){
             window.location.href = "../pages/loginsignup.php?redirect=" + page;
         }
     }
 }
+
 </script>
 </body>
 </html>

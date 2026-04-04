@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,31 +12,33 @@
 <link rel="stylesheet" href="../assets/css/contact.css">
 </head>
 
-
 <body>
+
 <header>
-        <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
-        <nav>
-            <a href="../index.php">Home</a>
-            <a href="../pages/loginsignup.php">Login</a>
-            <a href="../pages/destination.php">Destinations</a>
-            <a href="../pages/Hotels.php">Hotels</a>
-            <a href="../pages/activities.php">Activities</a>
-            <a href="../pages/packages.php">Packages</a>
-            <a href="../pages/booking.php" onclick="checkLogin('booking.php')">Bookings</a>
-            <!-- <a href="../pages/contact.php" onclick="checkLogin('contact.php')">Contact</a> -->
-            
-            <div class="dropdown">
-                <button class="dropbtn">More ▼</button>
-                <div class="dropdown-content">
-                    <a href="../pages/Special.php">Special Offers</a>
-                    <a href="../pages/blog.php">Blogs</a>
-                    <a href="../pages/faq.php">FAQs</a>
-                    <a href="../pages/gallery.php">Gallery</a>
-                </div>
+    <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
+    <nav>
+        <a href="../index.php">Home</a>
+        <a href="../pages/loginsignup.php">Login</a>
+        <a href="../pages/destination.php">Destinations</a>
+        <a href="../pages/Hotels.php">Hotels</a>
+        <a href="../pages/activities.php">Activities</a>
+        <a href="../pages/packages.php">Packages</a>
+
+        <!-- 🔥 FIXED -->
+        <a href="#" onclick="checkLogin('booking.php')">Bookings</a>
+
+        <div class="dropdown">
+            <button class="dropbtn">More ▼</button>
+            <div class="dropdown-content">
+                <a href="../pages/Special.php">Special Offers</a>
+                <a href="../pages/blog.php">Blogs</a>
+                <a href="../pages/faq.php">FAQs</a>
+                <a href="../pages/gallery.php">Gallery</a>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
+
 <div class="container">
 
 <div class="sidebar">
@@ -57,7 +63,6 @@
 
 </div>
 
-
 <div class="form-area">
 
 <h2>Get in Touch</h2>
@@ -65,9 +70,7 @@
 <form action="../backend/contact.php" method="POST">
 
 <input type="text" name="name" placeholder="Your Name" required>
-
 <input type="email" name="email" placeholder="Your Email" required>
-
 <textarea name="message" placeholder="Tell us about your dream destination or ask a question..." required></textarea>
 
 <button type="submit" class="btn-submit">Send My Inquiry</button>
@@ -77,13 +80,16 @@
 </div>
 
 </div>
+
 <script>
-    function checkLogin(page){
-        
+
+// 🔥 LOGIN CHECK
+function checkLogin(page){
+
     const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
-    
+
     if(isLoggedIn === "yes"){
-        window.location.href = page;
+        window.location.href = "../pages/" + page;
     } else {
         if(confirm("⚠️ Login required to continue")){
             window.location.href = "../pages/loginsignup.php?redirect=" + page;
@@ -91,6 +97,7 @@
     }
 }
 
+// 🔥 ALERT SYSTEM
 const urlParams = new URLSearchParams(window.location.search);
 
 if(urlParams.get('success')){
@@ -110,5 +117,6 @@ alert("❌ Something went wrong. Please try again.");
 }
 
 </script>
+
 </body>
 </html>

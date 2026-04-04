@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -5,33 +8,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adventure Journal | Northbound</title>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> -->
-     <link rel="stylesheet" href="../assets/css/blog.css">
+    <link rel="stylesheet" href="../assets/css/blog.css">
 </head>
+
 <body>
-   <header>
-        <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
-        <nav>
-            <a href="../index.php">Home</a>
-            <a href="../pages/loginsignup.php">Login</a>
-            <a href="../pages/destination.php">Destinations</a>
-            <a href="../pages/Hotels.php">Hotels</a>
-            <a href="../pages/activities.php">Activities</a>
-            <a href="../pages/packages.php">Packages</a>
-            <a href="../pages/booking.php" onclick="checkLogin('booking.php')">Bookings</a>
-            <a href="../pages/contact.php" onclick="checkLogin('contact.php')">Contact</a>
-            
-            <div class="dropdown">
-                <button class="dropbtn">More ▼</button>
-                <div class="dropdown-content">
-                    <a href="../pages/Special.php">Special Offers</a>
-                    <!-- <a href="../pages/blog.php">Blogs</a> -->
-                    <a href="../pages/faq.php">FAQs</a>
-                    <a href="../pages/gallery.php">Gallery</a>
-                </div>
+
+<header>
+    <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
+    <nav>
+        <a href="../index.php">Home</a>
+        <a href="../pages/loginsignup.php">Login</a>
+        <a href="../pages/destination.php">Destinations</a>
+        <a href="../pages/Hotels.php">Hotels</a>
+        <a href="../pages/activities.php">Activities</a>
+        <a href="../pages/packages.php">Packages</a>
+
+        <!-- 🔥 FIXED -->
+        <a href="#" onclick="checkLogin('booking.php')">Bookings</a>
+        <a href="#" onclick="checkLogin('contact.php')">Contact</a>
+        
+        <div class="dropdown">
+            <button class="dropbtn">More ▼</button>
+            <div class="dropdown-content">
+                <a href="../pages/Special.php">Special Offers</a>
+                <a href="../pages/faq.php">FAQs</a>
+                <a href="../pages/gallery.php">Gallery</a>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
 <div class="container">
     <div class="section-header">
@@ -40,6 +45,7 @@
     </div>
 
     <div class="blog-grid">
+
         <div class="blog-card">
             <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&q=80&w=800');"></div>
             <div class="card-content">
@@ -69,22 +75,26 @@
                 <a href="blog3.html" class="read-more">Read Story</a>
             </div>
         </div>
+
     </div>
 </div>
 
 <script>
+
+// 🔥 LOGIN CHECK
 function checkLogin(page){
 
     const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
 
     if(isLoggedIn === "yes"){
-        window.location.href = page;
+        window.location.href = "../pages/" + page;
     } else {
         if(confirm("⚠️ Login required to continue")){
             window.location.href = "../pages/loginsignup.php?redirect=" + page;
         }
     }
 }
+
 </script>
 
 </body>

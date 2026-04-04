@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['user_id'])){
-    header("Location: loginsignup.html?redirect=booking.php");
+    header("Location: ../pages/loginsignup.php?redirect=booking.php");
     exit();
 }
 ?>
@@ -43,8 +43,10 @@ alert("❌ Booking failed. Please try again.");
             <a href="../pages/Hotels.php">Hotels</a>
             <a href="../pages/activities.php">Activities</a>
             <a href="../pages/packages.php">Packages</a>
-            <!-- <a href="../pages/booking.php" onclick="checkLogin('booking.php')">Bookings</a> -->
-            <a href="../pages/contact.php" onclick="checkLogin('contact.php')">Contact</a>
+
+            <!-- 🔥 FIXED -->
+            <a href="#" onclick="checkLogin('booking.php')">Bookings</a>
+            <a href="#" onclick="checkLogin('contact.php')">Contact</a>
             
             <div class="dropdown">
                 <button class="dropbtn">More ▼</button>
@@ -70,7 +72,6 @@ alert("❌ Booking failed. Please try again.");
 
 <input type="hidden" name="package" id="packageInput">
 
-<!-- 🔥 USER ID ADD KIYA (IMPORTANT) -->
 <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
 
 <div class="input-group">
@@ -132,12 +133,14 @@ alert("❌ Booking failed. Please try again.");
 </div>
 
 <script>
+
+// 🔥 LOGIN CHECK FUNCTION
 function checkLogin(page){
 
     const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
 
     if(isLoggedIn === "yes"){
-        window.location.href = page;
+        window.location.href = "../pages/" + page;
     } else {
         if(confirm("⚠️ Login required to continue")){
             window.location.href = "../pages/loginsignup.php?redirect=" + page;
@@ -145,7 +148,7 @@ function checkLogin(page){
     }
 }
 
-
+// 🔥 PACKAGE LOGIC
 window.onload = function() {
 
 const urlParams = new URLSearchParams(window.location.search);
