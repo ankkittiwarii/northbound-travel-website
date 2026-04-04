@@ -1,49 +1,42 @@
-# NorthBound Travel Website
+# 🌍 NorthBound Travel Website
 
-NorthBound is a travel and tourism website that allows users to explore travel destinations, view travel packages, and book trips online.
+NorthBound is a full-stack travel booking platform that allows users to explore destinations, view travel packages, and securely book trips online.
+It includes a complete authentication system and an admin dashboard for managing bookings and enquiries.
 
-## 🌐 Technologies Used
+---
 
-* HTML
-* CSS
-* JavaScript
-* PHP (Backend)
-* MySQL (Database)
+## 🚀 Tech Stack
+
+* Frontend: HTML, CSS, JavaScript
+* Backend: PHP
+* Database: MySQL
+* Server: XAMPP (Apache + MySQL)
+
+---
 
 ## 📂 Project Structure
 
-```
 northbound-travel-website/
 
 │
-├── index.html
+├── index.php
 ├── README.md
 │
 ├── assets/
 │   ├── css/
-│   │   ├── style.css
-│   │   ├── activities.css
-│   │   ├── booking.css
-│   │   ├── destination.css
-│   │   ├── hotels.css
-│   │   ├── packages.css
-│   │   ├── loginsignup.css
-│   │   └── special.css
-│   │
 │   └── images/
-│        (all website images)
 │
 ├── pages/
-│   ├── activities.html
-│   ├── blog.html
-│   ├── booking.html
-│   ├── contact.html
-│   ├── destination.html
-│   ├── gallery.html
-│   ├── hotels.html
-│   ├── loginsignup.html
-│   ├── packages.html
-│   └── special.html
+│   ├── activities.php
+│   ├── blog.php
+│   ├── booking.php
+│   ├── contact.php
+│   ├── destination.php
+│   ├── gallery.php
+│   ├── hotels.php
+│   ├── loginsignup.php
+│   ├── packages.php
+│   └── special.php
 │
 ├── backend/
 │   ├── db.php
@@ -64,25 +57,91 @@ northbound-travel-website/
 │
 └── database/
     └── travel.sql
-```
+
+
+---
 
 ## ✨ Features
 
-* User Signup and Login
-* Travel Packages
-* Destination Gallery
-* Online Booking System
-* Contact Form
+### 🔐 User Authentication
 
-## 🚀 Future Improvements
+* User Signup with password hashing
+* Secure Login system using sessions
+* Redirect system (returns user to original page after login)
 
-* Admin Dashboard
-* Payment Integration
-* Booking Management System
+---
+
+### 🌍 Travel Browsing
+
+* Explore destinations, hotels, and activities
+* View travel packages
+* Fully responsive UI
+
+---
+
+### 🧾 Booking System
+
+* Secure booking form
+* Only logged-in users can book
+* User data linked with bookings
+* Success & error handling
+
+---
+
+### 📩 Contact System
+
+* Users can send enquiries
+* Data stored in database
+* Admin can view all enquiries
+
+---
+
+### 🛠️ Admin Dashboard
+
+* Admin login system
+* View total bookings, users, enquiries
+* Manage bookings (delete)
+* Manage enquiries (delete)
+* Secure session-based access
+
+---
+
+### 🔒 Security Features
+
+* Prepared Statements (SQL Injection protection)
+* Password hashing
+* Session-based authentication
+* XSS protection using `htmlspecialchars()`
+* Route protection (login required for booking/contact)
+
+---
+
+## 🗄️ Database Design
+
+* `users` → stores user data
+* `bookings` → linked with users (foreign key)
+* `contact` → stores enquiries
+* `admin` → admin login
+
+
+## 🎯 Future Improvements
+
+* Payment Integration (Razorpay/Stripe)
 * Email Notifications
+* User Dashboard
+* Booking history
+* Admin analytics (charts)
 
-## 👨‍💻 Author
+---
 
-Ankit Tiwari
-Karan Sharma
-Akshit Rangra
+## 📌 Author
+
+* Ankit Tiwari
+* Karan Sharma
+* Akshit Rangra
+
+---
+
+## 💼 Resume Highlight
+
+> Built a full-stack travel booking platform with authentication, protected routes, booking system, contact system, and admin dashboard using PHP, MySQL, and JavaScript.
