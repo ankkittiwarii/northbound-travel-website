@@ -16,6 +16,7 @@ It includes a complete authentication system and an admin dashboard for managing
 
 ## 📂 Project Structure
 
+```
 northbound-travel-website/
 
 │
@@ -57,7 +58,7 @@ northbound-travel-website/
 │
 └── database/
     └── travel.sql
-
+```
 
 ---
 
@@ -123,6 +124,15 @@ northbound-travel-website/
 * `contact` → stores enquiries
 * `admin` → admin login
 
+---
+
+### 3️⃣ Import Database
+
+* Open phpMyAdmin
+* Create database: `travel`
+* Import `database/travel.sql`
+
+---
 
 ## 🎯 Future Improvements
 
