@@ -5,161 +5,129 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login | Northbound</title>
-
-<link rel="stylesheet" href="../assets/css/loginsignup.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthBound - Login & Sign Up</title>
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <link rel="stylesheet" href="../assets/css/loginsignup.css">
 </head>
 
 <body>
 
-<header>
-    <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
-    <nav>
-        <a href="../index.php">Home</a>
-        <a href="../pages/destination.php">Destinations</a>
-        <a href="../pages/Hotels.php">Hotels</a>
-        <a href="../pages/activities.php">Activities</a>
-        <a href="../pages/packages.php">Packages</a>
+<?php include "../includes/navbar.php"; ?>
 
-        <!-- 🔥 FIXED -->
-        <a href="#" onclick="checkLogin('booking.php')">Bookings</a>
-        <a href="#" onclick="checkLogin('contact.php')">Contact</a>
+<div class="page-wrapper">
+    <div class="auth-container">
         
-        <div class="dropdown">
-            <button class="dropbtn">More ▼</button>
-            <div class="dropdown-content">
-                <a href="../pages/Special.php">Special Offers</a>
-                <a href="../pages/blog.php">Blogs</a>
-                <a href="../pages/faq.php">FAQs</a>
-                <a href="../pages/gallery.php">Gallery</a>
+        <div class="auth-left">
+            <div class="auth-left-content">
+                <h1>Welcome to NorthBound.</h1>
+                <p>Unlock exclusive travel deals, manage your bookings, and start your next Himalayan adventure today.</p>
             </div>
         </div>
-    </nav>
-</header>
 
-<div class="container">
+        <div class="auth-right">
+            
+            <div id="loginForm" class="auth-form active">
+                <span class="category-label">WELCOME BACK</span>
+                <h2>Login to your account</h2>
 
-<div class="left">
-<h1>Welcome to Northbound Travel</h1>
-<p>Your journey begins here</p>
+                <form action="../backend/login.php" method="POST">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="name@example.com" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="••••••••" required>
+                    </div>
+
+                    <input type="hidden" name="redirect" id="redirectInput">
+
+                    <button type="submit" class="auth-btn">Login</button>
+                </form>
+
+                <div class="switch">
+                    Don't have an account? 
+                    <a onclick="showSignup()">Create one</a>
+                </div>
+            </div>
+
+            <div id="signupForm" class="auth-form">
+                <span class="category-label">JOIN US</span>
+                <h2>Create an account</h2>
+
+                <form action="../backend/signup.php" method="POST">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" name="name" placeholder="e.g. Karan Sharma" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="name@example.com" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Create a strong password" required>
+                    </div>
+
+                    <button type="submit" class="auth-btn">Sign Up</button>
+                </form>
+
+                <div class="switch">
+                    Already have an account? 
+                    <a onclick="showLogin()">Login here</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 
-<div class="right">
 
-<!-- LOGIN FORM -->
-
-<div id="loginForm" class="form active">
-
-<h2>Login</h2>
-
-<form action="../backend/login.php" method="POST">
-
-<input type="email" name="email" placeholder="Email" required>
-<input type="password" name="password" placeholder="Password" required>
-
-<input type="hidden" name="redirect" id="redirectInput">
-
-<button type="submit">Login</button>
-
-</form>
-
-<div class="switch">
-Don't have an account? 
-<a onclick="showSignup()">Sign Up</a>
-</div>
-
-</div>
-
-<!-- SIGNUP FORM -->
-
-<div id="signupForm" class="form">
-
-<h2>Create Account</h2>
-
-<form action="../backend/signup.php" method="POST">
-
-<input type="text" name="name" placeholder="Full Name" required>
-<input type="email" name="email" placeholder="Email" required>
-<input type="password" name="password" placeholder="Password" required>
-
-<button type="submit">Sign Up</button>
-
-</form>
-
-<div class="switch">
-Already have an account? 
-<a onclick="showLogin()">Login</a>
-</div>
-
-</div>
-
-</div>
-</div>
-
+<script src="../assets/js/loginCheck.js"></script>
 <script>
-
-// 🔥 LOGIN CHECK
-function checkLogin(page){
-
-    const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
-
-    if(isLoggedIn === "yes"){
-        window.location.href = "../pages/" + page;
-    } else {
-        if(confirm("⚠️ Login required to continue")){
-            window.location.href = "../pages/loginsignup.php?redirect=" + page;
-        }
+    // --- FORM TOGGLE LOGIC ---
+    function showSignup(){
+        document.getElementById("loginForm").classList.remove("active");
+        document.getElementById("signupForm").classList.add("active");
     }
-}
 
-// form toggle
-function showSignup(){
-document.getElementById("loginForm").classList.remove("active");
-document.getElementById("signupForm").classList.add("active");
-}
+    function showLogin(){
+        document.getElementById("signupForm").classList.remove("active");
+        document.getElementById("loginForm").classList.add("active");
+    }
 
-function showLogin(){
-document.getElementById("signupForm").classList.remove("active");
-document.getElementById("loginForm").classList.add("active");
-}
+    // --- REDIRECT HANDLING ---
+    const params = new URLSearchParams(window.location.search);
+    const redirect = params.get("redirect");
 
-// redirect handle
-const params = new URLSearchParams(window.location.search);
-const redirect = params.get("redirect");
+    if(redirect){
+        document.getElementById("redirectInput").value = redirect;
+    }
 
-if(redirect){
-    document.getElementById("redirectInput").value = redirect;
-}
+    // --- ERROR & SUCCESS HANDLING ---
+    const error = params.get("error");
+    if(error === "empty"){
+        alert("⚠️ All fields are required.");
+    }
+    if(error === "wrongpass"){
+        alert("❌ Incorrect Password. Please try again.");
+    }
+    if(error === "nouser"){
+        alert("❌ No user found with this email address.");
+    }
+    if(error === "email_exists"){
+        alert("⚠️ This email is already registered. Please log in.");
+    }
 
-// 🔥 ERROR HANDLING
-const error = params.get("error");
-
-if(error === "empty"){
-    alert("All fields are required ⚠️");
-}
-
-if(error === "wrongpass"){
-    alert("Wrong Password ❌");
-}
-
-if(error === "nouser"){
-    alert("User not found ❌");
-}
-
-if(error === "email_exists"){
-    alert("Email already registered ⚠️");
-}
-
-// success
-const success = params.get("success");
-
-if(success === "signup"){
-    alert("Signup successful ✅ Please login");
-}
-
+    const success = params.get("success");
+    if(success === "signup"){
+        alert("✅ Signup successful! Please log in with your new credentials.");
+    }
 </script>
 
 </body>

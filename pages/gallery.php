@@ -7,46 +7,23 @@ session_start();
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Northbound Gallery</title>
+<title>NorthBound - Travel Gallery</title>
+<link rel="stylesheet" href="../assets/css/navbar.css">
 <link href="../assets/css/gallery.css" rel="stylesheet">
 </head>
 
 <body>
 
-<header>
-    <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
-    <nav>
-        <a href="../index.php">Home</a>
-        <a href="../pages/loginsignup.php">Login</a>
-        <a href="../pages/destination.php">Destinations</a>
-        <a href="../pages/Hotels.php">Hotels</a>
-        <a href="../pages/activities.php">Activities</a>
-        <a href="../pages/packages.php">Packages</a>
+<?php include "../includes/navbar.php"; ?>
 
-        <!-- 🔥 FIXED -->
-        <a href="#" onclick="checkLogin('booking.php')">Bookings</a>
-        <a href="#" onclick="checkLogin('contact.php')">Contact</a>
-        
-        <div class="dropdown">
-            <button class="dropbtn">More ▼</button>
-            <div class="dropdown-content">
-                <a href="../pages/Special.php">Special Offers</a>
-                <a href="../pages/blog.php">Blogs</a>
-                <a href="../pages/faq.php">FAQs</a>
-            </div>
-        </div>
-    </nav>
-</header>
-
-<div class="gallery-section">
+<section class="gallery-section">
     <div class="gallery-header">
+        <span class="category-label">VISUAL JOURNEY</span>
         <h2>Explore the North</h2>
-        <p>From snow peaks to golden sands</p>
+        <p>From snow-capped peaks to golden desert sands, witness the magic through our lens.</p>
     </div>
 
     <div class="gallery-grid">
-
-        <!-- 🔥 TERA SAME CONTENT (unchanged) -->
 
         <div class="gallery-item">
             <img src="../assets/images/gulmarggallery.webp" alt="Gulmarg">
@@ -94,25 +71,9 @@ session_start();
         </div>
 
     </div>
-</div>
+</section>
 
-<script>
-
-// 🔥 LOGIN CHECK
-function checkLogin(page){
-
-    const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
-
-    if(isLoggedIn === "yes"){
-        window.location.href = "../pages/" + page;
-    } else {
-        if(confirm("⚠️ Login required to continue")){
-            window.location.href = "../pages/loginsignup.php?redirect=" + page;
-        }
-    }
-}
-
-</script>
+<script src="../assets/js/loginCheck.js"></script>
 
 </body>
 </html>

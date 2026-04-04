@@ -1,0 +1,62 @@
+<?php 
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
+$base = "/northbound-travel-website/";
+?>
+
+<header class="main-header">
+    <div class="logo">
+        <img src="<?php echo $base; ?>assets/images/logoimage.jfif" alt="NorthBound Logo">
+        <span>NorthBound</span>
+    </div>
+
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <nav class="nav-links">
+        <a href="<?php echo $base; ?>index.php">Home</a>
+        <a href="<?php echo $base; ?>pages/destination.php">Destinations</a>
+        <a href="<?php echo $base; ?>pages/Hotels.php">Hotels</a>
+        <a href="<?php echo $base; ?>pages/activities.php">Activities</a>
+
+        <a href="#" onclick="checkLogin('<?php echo $base; ?>pages/booking.php')">Bookings</a>
+        <a href="#" onclick="checkLogin('<?php echo $base; ?>pages/contact.php')">Contact</a>
+
+        <div class="dropdown">
+            <span class="dropbtn">More▼</span>
+            <div class="dropdown-content">
+                <a href="<?php echo $base; ?>pages/packages.php">Packages</a>
+                <a href="<?php echo $base; ?>pages/Special.php">Special Offers</a>
+                <a href="<?php echo $base; ?>pages/blog.php">Blogs</a>
+                <a href="<?php echo $base; ?>pages/faq.php">FAQs</a>
+                <a href="<?php echo $base; ?>pages/gallery.php">Gallery</a>
+            </div>
+        </div>
+
+        <?php if(isset($_SESSION['user_id'])) { ?>
+        <div class="dropdown">
+            <span class="user-name"><?php echo htmlspecialchars($_SESSION['user_name']); ?>▼</span>
+            <div class="dropdown-content">
+                <a href="#">My Profile</a>
+                <a href="#">My Bookings</a>
+                <a href="<?php echo $base; ?>backend/logout.php" class="logout-btn">Logout</a>
+            </div>
+        </div>
+        <?php } else { ?>
+        <a href="<?php echo $base; ?>pages/loginsignup.php" class="login-btn">
+            Login / SignUp
+        </a>
+        <?php } ?>
+    </nav>
+</header>
+
+<script>
+    document.getElementById('mobile-menu').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+        this.classList.toggle('is-active');
+    });
+</script>

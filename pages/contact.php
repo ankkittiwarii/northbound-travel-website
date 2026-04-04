@@ -5,117 +5,104 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us | Northbound</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/contact.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthBound - Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <link rel="stylesheet" href="../assets/css/contact.css">
 </head>
 
 <body>
 
-<header>
-    <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
-    <nav>
-        <a href="../index.php">Home</a>
-        <a href="../pages/loginsignup.php">Login</a>
-        <a href="../pages/destination.php">Destinations</a>
-        <a href="../pages/Hotels.php">Hotels</a>
-        <a href="../pages/activities.php">Activities</a>
-        <a href="../pages/packages.php">Packages</a>
+<?php include "../includes/navbar.php"; ?>
 
-        <!-- 🔥 FIXED -->
-        <a href="#" onclick="checkLogin('booking.php')">Bookings</a>
+<section class="contact-section">
+    <div class="contact-header">
+        <span class="category-label">REACH OUT</span>
+        <h2>Contact Us</h2>
+        <p>The ultimate travel experience starts with a conversation. Let us curate your next adventure.</p>
+    </div>
 
-        <div class="dropdown">
-            <button class="dropbtn">More ▼</button>
-            <div class="dropdown-content">
-                <a href="../pages/Special.php">Special Offers</a>
-                <a href="../pages/blog.php">Blogs</a>
-                <a href="../pages/faq.php">FAQs</a>
-                <a href="../pages/gallery.php">Gallery</a>
+    <div class="container">
+        
+        <div class="sidebar">
+            <h3>Contact Information</h3>
+            <p>Fill out the form and our travel experts will get back to you within 24 hours.</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <label>Email Us</label>
+                        <span>karansharma@northbound-travel.com</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <label>Visit Office</label>
+                        <span>Sec-17, Chandigarh, India</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <label>Call Support</label>
+                        <span>+91 6280647885</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
-</header>
 
-<div class="container">
+        <div class="form-area">
+            <h2>Send us a Message</h2>
+            <form action="../backend/contact.php" method="POST">
+                <div class="input-group">
+                    <label>Your Name</label>
+                    <input type="text" name="name" placeholder="e.g. Karan Sharma" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="karan@example.com" required>
+                </div>
 
-<div class="sidebar">
-<h1>Northbound.</h1>
+                <div class="input-group">
+                    <label>Message</label>
+                    <textarea name="message" placeholder="Tell us about your dream destination or ask a question..." required></textarea>
+                </div>
 
-<p>The ultimate travel experience starts with a conversation. Let us curate your next adventure.</p>
+                <button type="submit" class="btn-submit">Send Inquiry</button>
+            </form>
+        </div>
 
-<div class="contact-item">
-<label>Email Us</label>
-<span>karansharma@northbound-travel.com</span>
-</div>
+    </div>
+</section>
 
-<div class="contact-item">
-<label>Visit Office</label>
-<span>Sec-17, Chandigarh, India</span>
-</div>
-
-<div class="contact-item">
-<label>Call Support</label>
-<span>+91 6280647885</span>
-</div>
-
-</div>
-
-<div class="form-area">
-
-<h2>Get in Touch</h2>
-
-<form action="../backend/contact.php" method="POST">
-
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
-<textarea name="message" placeholder="Tell us about your dream destination or ask a question..." required></textarea>
-
-<button type="submit" class="btn-submit">Send My Inquiry</button>
-
-</form>
-
-</div>
-
-</div>
+<script src="../assets/js/loginCheck.js"></script>
 
 <script>
-
-// 🔥 LOGIN CHECK
-function checkLogin(page){
-
-    const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
-
-    if(isLoggedIn === "yes"){
-        window.location.href = "../pages/" + page;
-    } else {
-        if(confirm("⚠️ Login required to continue")){
-            window.location.href = "../pages/loginsignup.php?redirect=" + page;
-        }
-    }
-}
-
 // 🔥 ALERT SYSTEM
 const urlParams = new URLSearchParams(window.location.search);
 
 if(urlParams.get('success')){
-alert("✅ Your message has been sent successfully!");
+    alert("✅ Your message has been sent successfully! Our team will contact you soon.");
 }
 
 if(urlParams.get('error') === "empty"){
-alert("⚠️ Please fill all fields");
+    alert("⚠️ Please fill all required fields.");
 }
 
 if(urlParams.get('error') === "invalid_email"){
-alert("❌ Invalid email format");
+    alert("❌ Invalid email format. Please check and try again.");
 }
 
 if(urlParams.get('error') === "failed"){
-alert("❌ Something went wrong. Please try again.");
+    alert("❌ Something went wrong while sending your message. Please try again later.");
 }
-
 </script>
 
 </body>

@@ -1,72 +1,42 @@
 <?php
 session_start();
 ?>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>NorthBound</title>
-    <link rel="stylesheet" href="assets/css/interfaces.css">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthBound - Premium Travel Experiences</title>
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/interfaces.css">
 </head>
 <body>
-    <header>
-        <div class="logo"><img src="assets/images/logoimage.jfif" alt="logo">NorthBound</div>
 
-        <nav>
-            <a href="pages/loginsignup.php">Login</a>
-            <a href="pages/destination.php">Destinations</a>
-            <a href="pages/Hotels.php">Hotels</a>
-            <a href="pages/activities.php">Activities</a>
-            <a href="pages/packages.php">Packages</a>
+<?php include "includes/navbar.php"; ?>
 
-            <!-- 🔥 FIXED -->
-            <a href="#" onclick="checkLogin('pages/booking.php')">Bookings</a>
-            <a href="#" onclick="checkLogin('pages/contact.php')">Contact</a>
+    <section class="hero-section">
+        <div class="hero-bg" id="hero-bg"></div>
+        <div class="hero-overlay"></div>
 
-            <div class="dropdown">
-                <button class="dropbtn">More ▼</button>
-                <div class="dropdown-content">
-                    <a href="pages/Special.php">Special Offers</a>
-                    <a href="pages/blog.php">Blogs</a>
-                    <a href="pages/faq.php">FAQs</a>
-                    <a href="pages/gallery.php">Gallery</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <section class="mount">
-        <div class="mount-content">
+        <div class="hero-content">
+            <h1>Discover the North</h1>
             <h2>Why Travel With NorthBound?</h2>
             <p>
                 NorthBound is dedicated to delivering premium travel experiences across Northern India.
-                We Combine confort, adventure, and local authenticity to craft journeys that stay with you forever.
+                We combine comfort, adventure, and local authenticity to craft journeys that stay with you forever.
                 Whether it's serene valleys, snowy peaks, or cultural heritage, we ensure every moment feels
                 extraordinary.
             </p>
 
             <div class="buttons">
-                <button class="btn1" onclick="window.open('pages/packages.php')">View Packages</button>
-                <button class="btn2" onclick="window.open('pages/destination.php')">Explore Destinations</button>
+                <a href="pages/packages.php" class="btn btn-primary">View Packages</a>
+                <a href="pages/destination.php" class="btn btn-outline">Explore Destinations</a>
             </div>
         </div>
     </section>
 
+<script src="assets/js/loginCheck.js"></script>       
 <script>       
-
-function checkLogin(page){
-
-    const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
-
-    if(isLoggedIn === "yes"){
-        window.location.href = page;
-    } else {
-        if(confirm("⚠️ Login required to continue")){
-            window.location.href = "pages/loginsignup.php?redirect=" + page.split('/').pop();
-        }
-    }
-}
-
 const images = [
     "assets/images/mountainimage.jpg",
     "assets/images/mountainimage1.jpg",
@@ -75,21 +45,20 @@ const images = [
 ];
 
 let i = 0;
-const mount = document.querySelector(".mount");
+const heroBg = document.getElementById("hero-bg");
 
-function cbground() {
-    mount.style.backgroundImage = "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('" + images[i] + "')";
-    mount.style.backgroundSize = "cover";
-    mount.style.backgroundPosition = "center";
+function changeBackground() {
+    // Apply image to the separate background div
+    heroBg.style.backgroundImage = `url('${images[i]}')`;
     i++;
     if (i >= images.length) {
         i = 0;
     }
 }
 
-cbground();
-setInterval(cbground, 5000);
-
+// Initial call and interval setup
+changeBackground();
+setInterval(changeBackground, 5000);
 </script>
 
 </body>

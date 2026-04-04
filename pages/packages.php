@@ -5,46 +5,33 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Northern India Tours - All Packages</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthBound - Premium Tour Packages</title>
+    <link rel="stylesheet" href="../assets/css/navbar.css">
     <link rel="stylesheet" href="../assets/css/packages.css">
-  <head>
+</head>
 <body>
-<header>
-        <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
-        <nav>
-            <a href="../index.php">Home</a>
-            <a href="../pages/loginsignup.php">Login</a>
-            <a href="../pages/destination.php">Destinations</a>
-            <a href="../pages/Hotels.php">Hotels</a>
-            <a href="../pages/activities.php">Activities</a>
-            <!-- <a href="../pages/packages.php">Packages</a> -->
-            <a href="#" onclick="checkLogin('booking.php')">Bookings</a>
-            <a href="#" onclick="checkLogin('contact.php')">Contact</a>
-            
-            <div class="dropdown">
-                <button class="dropbtn">More ▼</button>
-                <div class="dropdown-content">
-                    <a href="../pages/Special.php">Special Offers</a>
-                    <a href="../pages/blog.php">Blogs</a>
-                    <a href="../pages/faq.php">FAQs</a>
-                    <a href="../pages/gallery.php">Gallery</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-  <div class="container">
-    <h2 class="section-title">Explore Northern India</h2>
-    <p class="section-subtitle">From snow-capped peaks to golden deserts, find your perfect getaway.</p>
+
+<?php include "../includes/navbar.php"; ?>
+
+<section class="packages-section">
+    <div class="section-header">
+        <span class="category-label">CURATED JOURNEYS</span>
+        <h2 class="section-title">Explore Northern India</h2>
+        <p class="section-subtitle">From snow-capped peaks to golden deserts, find your perfect getaway.</p>
+    </div>
+
     <div class="packages-grid">
       
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/gulmargpackage.webp" alt="Gulmarg"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/gulmargpackage.webp" alt="Gulmarg">
+        </div>
         <div class="package-content">
-          <h3>Adventure in Gulmarg</h3>
-          <div class="package-info"><p><i>Kashmir | 5 Days / 4 Nights</i></p></div>
-          <p class="package-desc"><b>Hit the slopes in India's premier skiing destination and take the famous Gondola ride.</b></p>
+          <h3 class="package-title">Adventure in Gulmarg</h3>
+          <div class="package-info"><span>Kashmir | 5 Days / 4 Nights</span></div>
+          <p class="package-desc">Hit the slopes in India's premier skiing destination and take the famous Gondola ride.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹16,500</h4></div>
             <button class="btn-book" onclick="openModal('gulmarg')">View Details</button>
@@ -53,11 +40,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/ladakhpackage.webp" alt="Leh Ladakh"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/ladakhpackage.webp" alt="Leh Ladakh">
+        </div>
         <div class="package-content">
-          <h3>Mystic Leh Ladakh</h3>
-          <div class="package-info"><p><i>Ladakh | 6 Days / 5 Nights</i></p></div>
-          <p class="package-desc"><b>Ride through the highest motorable passes and visit ancient monasteries under crystal clear skies.</b></p>
+          <h3 class="package-title">Mystic Leh Ladakh</h3>
+          <div class="package-info"><span>Ladakh | 6 Days / 5 Nights</span></div>
+          <p class="package-desc">Ride through the highest motorable passes and visit ancient monasteries under crystal clear skies.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹25,999</h4></div>
             <button class="btn-book" onclick="openModal('ladakh')">View Details</button>
@@ -66,11 +55,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/rishikeshpackage.avif" alt="Rishikesh"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/rishikeshpackage.avif" alt="Rishikesh">
+        </div>
         <div class="package-content">
-          <h3>Rishikesh Retreat</h3>
-          <div class="package-info"><p><i>Uttarakhand | 3 Days / 2 Nights</i></p></div>
-          <p class="package-desc"><b>Experience the yoga capital of the world and tackle the thrilling rapids of the Ganges.</b></p>
+          <h3 class="package-title">Rishikesh Retreat</h3>
+          <div class="package-info"><span>Uttarakhand | 3 Days / 2 Nights</span></div>
+          <p class="package-desc">Experience the yoga capital of the world and tackle the thrilling rapids of the Ganges.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹8,999</h4></div>
             <button class="btn-book" onclick="openModal('rishikesh')">View Details</button>
@@ -79,11 +70,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/dharamshalapackage.webp" alt="Dharamshala"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/dharamshalapackage.webp" alt="Dharamshala">
+        </div>
         <div class="package-content">
-          <h3>Spiritual Dharamshala</h3>
-          <div class="package-info"><p><i>Himachal Pradesh | 4 Days / 3 Nights</i></p></div>
-          <p class="package-desc"><b>Find peace in the home of the Dalai Lama. Enjoy lush tea gardens and Tibetan culture.</b></p>
+          <h3 class="package-title">Spiritual Dharamshala</h3>
+          <div class="package-info"><span>Himachal Pradesh | 4 Days / 3 Nights</span></div>
+          <p class="package-desc">Find peace in the home of the Dalai Lama. Enjoy lush tea gardens and Tibetan culture.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹12,500</h4></div>
             <button class="btn-book" onclick="openModal('dharamshala')">View Details</button>
@@ -92,11 +85,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/manalipackage.webp" alt="Manali"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/manalipackage.webp" alt="Manali">
+        </div>
         <div class="package-content">
-          <h3>Adventure in Manali</h3>
-          <div class="package-info"><p><i>Himachal Pradesh | 6 Days / 5 Nights</i></p></div>
-          <p class="package-desc"><b>Get your adrenaline pumping with paragliding, river rafting, and breathtaking treks.</b></p>
+          <h3 class="package-title">Adventure in Manali</h3>
+          <div class="package-info"><span>Himachal Pradesh | 6 Days / 5 Nights</span></div>
+          <p class="package-desc">Get your adrenaline pumping with paragliding, river rafting, and breathtaking treks.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹14,200</h4></div>
             <button class="btn-book" onclick="openModal('manali')">View Details</button>
@@ -105,11 +100,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/shimlapackage.jpg" alt="Shimla"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/shimlapackage.jpg" alt="Shimla">
+        </div>
         <div class="package-content">
-          <h3>Classic Shimla</h3>
-          <div class="package-info"><p><i>Himachal Pradesh | 4 Days / 3 Nights</i></p></div>
-          <p class="package-desc"><b>Stroll down the historic Mall Road and take in the colonial charm of the Queen of Hills.</b></p>
+          <h3 class="package-title">Classic Shimla</h3>
+          <div class="package-info"><span>Himachal Pradesh | 4 Days / 3 Nights</span></div>
+          <p class="package-desc">Stroll down the historic Mall Road and take in the colonial charm of the Queen of Hills.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹10,500</h4></div>
             <button class="btn-book" onclick="openModal('shimla')">View Details</button>
@@ -118,11 +115,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/kasolpackage.webp" alt="Kasol"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/kasolpackage.webp" alt="Kasol">
+        </div>
         <div class="package-content">
-          <h3>Backpacking Kasol</h3>
-          <div class="package-info"><p><i>Himachal Pradesh | 4 Days / 3 Nights</i></p></div>
-          <p class="package-desc"><b>Trek through the Parvati Valley, relax by the river, and explore vibrant local cafes.</b></p>
+          <h3 class="package-title">Backpacking Kasol</h3>
+          <div class="package-info"><span>Himachal Pradesh | 4 Days / 3 Nights</span></div>
+          <p class="package-desc">Trek through the Parvati Valley, relax by the river, and explore vibrant local cafes.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹9,500</h4></div>
             <button class="btn-book" onclick="openModal('kasol')">View Details</button>
@@ -131,11 +130,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/kufripackage1.jpg" alt="Kufri"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/kufripackage1.jpg" alt="Kufri">
+        </div>
         <div class="package-content">
-          <h3>Kufri Snow Escape</h3>
-          <div class="package-info"><p><i>Himachal Pradesh | 3 Days / 2 Nights</i></p></div>
-          <p class="package-desc"><b>Enjoy panoramic views of the snow-capped Himalayas and fun winter sports activities.</b></p>
+          <h3 class="package-title">Kufri Snow Escape</h3>
+          <div class="package-info"><span>Himachal Pradesh | 3 Days / 2 Nights</span></div>
+          <p class="package-desc">Enjoy panoramic views of the snow-capped Himalayas and fun winter sports activities.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹7,500</h4></div>
             <button class="btn-book" onclick="openModal('kufri')">View Details</button>
@@ -144,11 +145,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/dehradunpackage.webp" alt="Dehradun"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/dehradunpackage.webp" alt="Dehradun">
+        </div>
         <div class="package-content">
-          <h3>Discover Dehradun</h3>
-          <div class="package-info"><p><i>Uttarakhand | 3 Days / 2 Nights</i></p></div>
-          <p class="package-desc"><b>Explore Robber's Cave, Sahastradhara, and the scenic beauty of the Doon Valley.</b></p>
+          <h3 class="package-title">Discover Dehradun</h3>
+          <div class="package-info"><span>Uttarakhand | 3 Days / 2 Nights</span></div>
+          <p class="package-desc">Explore Robber's Cave, Sahastradhara, and the scenic beauty of the Doon Valley.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹8,000</h4></div>
             <button class="btn-book" onclick="openModal('dehradun')">View Details</button>
@@ -157,11 +160,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/AMRITSARpackage.jpg" alt="Amritsar"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/AMRITSARpackage.jpg" alt="Amritsar">
+        </div>
         <div class="package-content">
-          <h3>Heritage Amritsar</h3>
-          <div class="package-info"><p><i>Punjab | 2 Days / 1 Night</i></p></div>
-          <p class="package-desc"><b>Witness the serenity of the Golden Temple and the patriotic energy of the Wagah Border.</b></p>
+          <h3 class="package-title">Heritage Amritsar</h3>
+          <div class="package-info"><span>Punjab | 2 Days / 1 Night</span></div>
+          <p class="package-desc">Witness the serenity of the Golden Temple and the patriotic energy of the Wagah Border.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹6,500</h4></div>
             <button class="btn-book" onclick="openModal('amritsar')">View Details</button>
@@ -170,11 +175,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/massooriepackage.webp" alt="Mussoorie"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/massooriepackage.webp" alt="Mussoorie">
+        </div>
         <div class="package-content">
-          <h3>Misty Mussoorie</h3>
-          <div class="package-info"><p><i>Uttarakhand | 3 Days / 2 Nights</i></p></div>
-          <p class="package-desc"><b>Take a cable car ride to Gun Hill and enjoy the cascading waters of Kempty Falls.</b></p>
+          <h3 class="package-title">Misty Mussoorie</h3>
+          <div class="package-info"><span>Uttarakhand | 3 Days / 2 Nights</span></div>
+          <p class="package-desc">Take a cable car ride to Gun Hill and enjoy the cascading waters of Kempty Falls.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹11,000</h4></div>
             <button class="btn-book" onclick="openModal('mussoorie')">View Details</button>
@@ -183,11 +190,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/nainitalpackage.jpg" alt="Nainital"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/nainitalpackage.jpg" alt="Nainital">
+        </div>
         <div class="package-content">
-          <h3>Lakes of Nainital</h3>
-          <div class="package-info"><p><i>Uttarakhand | 4 Days / 3 Nights</i></p></div>
-          <p class="package-desc"><b>Go boating on Naini Lake, explore the eco-cave gardens, and ride the ropeway.</b></p>
+          <h3 class="package-title">Lakes of Nainital</h3>
+          <div class="package-info"><span>Uttarakhand | 4 Days / 3 Nights</span></div>
+          <p class="package-desc">Go boating on Naini Lake, explore the eco-cave gardens, and ride the ropeway.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹12,500</h4></div>
             <button class="btn-book" onclick="openModal('nainital')">View Details</button>
@@ -196,11 +205,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/spitipackage.webp" alt="Spiti Valley"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/spitipackage.webp" alt="Spiti Valley">
+        </div>
         <div class="package-content">
-          <h3>Untamed Spiti Valley</h3>
-          <div class="package-info"><p><i>Himachal Pradesh | 7 Days / 6 Nights</i></p></div>
-          <p class="package-desc"><b>Explore the rugged, barren beauty of the middle land between Tibet and India.</b></p>
+          <h3 class="package-title">Untamed Spiti Valley</h3>
+          <div class="package-info"><span>Himachal Pradesh | 7 Days / 6 Nights</span></div>
+          <p class="package-desc">Explore the rugged, barren beauty of the middle land between Tibet and India.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹22,000</h4></div>
             <button class="btn-book" onclick="openModal('spiti')">View Details</button>
@@ -209,11 +220,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/aulipackage.webp" alt="Auli"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/aulipackage.webp" alt="Auli">
+        </div>
         <div class="package-content">
-          <h3>Alpine Auli</h3>
-          <div class="package-info"><p><i>Uttarakhand | 4 Days / 3 Nights</i></p></div>
-          <p class="package-desc"><b>Glide down pristine ski slopes surrounded by coniferous forests and oak trees.</b></p>
+          <h3 class="package-title">Alpine Auli</h3>
+          <div class="package-info"><span>Uttarakhand | 4 Days / 3 Nights</span></div>
+          <p class="package-desc">Glide down pristine ski slopes surrounded by coniferous forests and oak trees.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹15,000</h4></div>
             <button class="btn-book" onclick="openModal('auli')">View Details</button>
@@ -222,11 +235,13 @@ session_start();
       </div>
 
       <div class="package-card">
-        <div class="package-img"><img src="../assets/images/jaisalmerpackage.webp" alt="Jaisalmer"></div>
+        <div class="card-img-wrapper">
+            <img src="../assets/images/jaisalmerpackage.webp" alt="Jaisalmer">
+        </div>
         <div class="package-content">
-          <h3>Golden Jaisalmer</h3>
-          <div class="package-info"><p><i>Rajasthan | 3 Days / 2 Nights</i></p></div>
-          <p class="package-desc"><b>Enjoy luxury desert camps, camel safaris, and cool nights under the stars.</b></p>
+          <h3 class="package-title">Golden Jaisalmer</h3>
+          <div class="package-info"><span>Rajasthan | 3 Days / 2 Nights</span></div>
+          <p class="package-desc">Enjoy luxury desert camps, camel safaris, and cool nights under the stars.</p>
           <div class="package-footer">
             <div class="price"><span>Starting from</span><h4>₹13,500</h4></div>
             <button class="btn-book" onclick="openModal('jaisalmer')">View Details</button>
@@ -235,56 +250,42 @@ session_start();
       </div>
 
     </div>
-  </div>
+</section>
 
-  <div id="packageModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-      <h2 id="modal-title" class="modal-title">Package Title</h2>
-      
-      <div class="modal-details">
-        <p><strong>Hotel:</strong> <span id="modal-hotel"></span></p>
-        <p><strong>Location:</strong> <span id="modal-location"></span></p>
-        <p><strong>Duration:</strong> <span id="modal-duration"></span></p>
-        <p><strong>Travel:</strong> <span id="modal-travel"></span></p>
+<div id="packageModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modal-title" class="modal-title">Package Title</h2>
+    
+    <div class="modal-details">
+      <p><strong>Hotel:</strong> <span id="modal-hotel"></span></p>
+      <p><strong>Location:</strong> <span id="modal-location"></span></p>
+      <p><strong>Duration:</strong> <span id="modal-duration"></span></p>
+      <p><strong>Travel:</strong> <span id="modal-travel"></span></p>
+    </div>
+
+    <div class="modal-lists">
+      <div class="list-box inclusions-box">
+        <h4>Inclusions:</h4>
+        <ul id="modal-inclusions"></ul>
       </div>
-
-      <div class="modal-lists">
-        <div class="list-box">
-          <h4>Inclusions:</h4>
-          <ul id="modal-inclusions"></ul>
-        </div>
-        <div class="list-box">
-          <h4>Exclusions:</h4>
-          <ul id="modal-exclusions"></ul>
-        </div>
-      </div>
-
-      <div style="margin-top: 25px;">
-        <h4>Itinerary:</h4>
-        <ul id="modal-itinerary" class="itinerary-list"></ul>
+      <div class="list-box exclusions-box">
+        <h4>Exclusions:</h4>
+        <ul id="modal-exclusions"></ul>
       </div>
     </div>
+
+    <div style="margin-top: 30px;">
+      <h4 class="itinerary-title">Itinerary:</h4>
+      <ul id="modal-itinerary" class="itinerary-list"></ul>
+    </div>
   </div>
+</div>
 
-  
+<script src="../assets/js/loginCheck.js"></script>
+
 <script>
-
-function checkLogin(page){
-
-    const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
-
-    if(isLoggedIn === "yes"){
-        window.location.href = "../pages/" + page;
-    } else {
-        if(confirm("⚠️ Login required to continue")){
-            window.location.href = "../pages/loginsignup.php?redirect=" + page;
-        }
-    }
-}
-
-
-    // Pure 15 Destinations ka Detail Data
+    // JS Logic remains the same, just keeping the structure intact
     const packageData = {
       gulmarg: {
         title: "Adventure in Gulmarg", hotel: "Heevan Retreat (5-star)", location: "Gulmarg, Kashmir", duration: "5 Days / 4 Nights", travel: "By Road (Private Cab)",
@@ -380,18 +381,15 @@ function checkLogin(page){
 
     const modal = document.getElementById("packageModal");
 
-    // Modal open karne ka function
     function openModal(id) {
       const data = packageData[id];
       if(data) {
-        // Saari exact details yahan update ho rahi hain
         document.getElementById("modal-title").innerText = data.title;
         document.getElementById("modal-hotel").innerText = data.hotel;
         document.getElementById("modal-location").innerText = data.location;
         document.getElementById("modal-duration").innerText = data.duration;
         document.getElementById("modal-travel").innerText = data.travel;
 
-        // List update karne ka code
         const fillList = (ulId, items) => {
           const ul = document.getElementById(ulId);
           ul.innerHTML = ""; 
@@ -406,12 +404,12 @@ function checkLogin(page){
         fillList("modal-exclusions", data.exclusions);
         fillList("modal-itinerary", data.itinerary);
 
-        // Modal screen par dikhao
-        modal.style.display = "block";
+        // Add a small fade-in animation to the modal
+        modal.style.display = "flex"; 
+        modal.style.animation = "fadeIn 0.3s ease-out forwards";
       }
     }
 
-    // Modal close karne ke methods
     function closeModal() {
       modal.style.display = "none";
     }
@@ -421,7 +419,7 @@ function checkLogin(page){
         modal.style.display = "none";
       }
     }
-  </script>
+</script>
 
 </body>
 </html>

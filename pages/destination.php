@@ -7,242 +7,147 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destination</title>
+    <title>NorthBound - Destinations</title>
+    <link rel="stylesheet" href="../assets/css/navbar.css">
     <link rel="stylesheet" href="../assets/css/destination.css">
 </head>
 
 <body>
 
-<header>
-    <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
-    <nav>
-        <a href="../index.php">Home</a>
-        <a href="../pages/loginsignup.php">Login</a>
-        <a href="../pages/Hotels.php">Hotels</a>
-        <a href="../pages/activities.php">Activities</a>
-        <a href="../pages/packages.php">Packages</a>
-
-        <!-- 🔥 FIXED -->
-        <a href="#" onclick="checkLogin('booking.php')">Bookings</a>
-        <a href="#" onclick="checkLogin('contact.php')">Contact</a>
-        
-        <div class="dropdown">
-            <button class="dropbtn">More ▼</button>
-            <div class="dropdown-content">
-                <a href="../pages/Special.php">Special Offers</a>
-                <a href="../pages/blog.php">Blogs</a>
-                <a href="../pages/faq.php">FAQs</a>
-                <a href="../pages/gallery.php">Gallery</a>
-            </div>
-        </div>
-    </nav>
-</header>
+<?php include "../includes/navbar.php"; ?>
 
 <section class="destination-section">
-<div id="section-header" style="margin-top: 50px;">
-    <h2>Explore Popular Destinations</h2>
-    <p style="margin-top: 10px; margin-bottom: 10px;">
-        Explore the rugged beauty, serene valleys, and cultural heritage of Northern India.
-    </p>
-</div>
+    <div class="section-header">
+        <h2>Explore Popular Destinations</h2>
+        <p>Explore the rugged beauty, serene valleys, and cultural heritage of Northern India.</p>
+    </div>
 
-<div id="destinations-container" class="destinations-grid"></div>
+    <div id="destinations-container" class="destinations-grid"></div>
+</section>
 
+<script src="../assets/js/loginCheck.js"></script>
 <script>
-
-// 🔥 LOGIN CHECK
-function checkLogin(page){
-
-    const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
-
-    if(isLoggedIn === "yes"){
-        window.location.href = "../pages/" + page;
-    } else {
-        if(confirm("⚠️ Login required to continue")){
-            window.location.href = "../pages/loginsignup.php?redirect=" + page;
-        }
-    }
-}
-
 // 🔥 DESTINATION DATA
 const destinationsData = [
-            {
-                id: 1,
-                title: "Gulmarg",
-                image: "../assets/images/gulmarg.jpg",
-                description: "Experience Gulmarg, a snowy paradise for thrill-seekers and nature lovers alike.",
-                attractions: " Skiing, Gondola Rides, Snowboarding.",
-                bestTime: " December to March",
-                mapLink: "https://maps.app.goo.gl/vaYahyYWsWnNcGvDA"
-            },
+    {
+        id: 1, title: "Gulmarg", image: "../assets/images/gulmarg.jpg",
+        description: "Experience Gulmarg, a snowy paradise for thrill-seekers and nature lovers alike.",
+        attractions: "Skiing, Gondola Rides, Snowboarding.", bestTime: "December to March",
+        mapLink: "https://maps.google.com/?q=Gulmarg"
+    },
+    {
+        id: 2, title: "Leh-Ladakh", image: "../assets/images/ladakh.jpg",
+        description: "Explore the rugged beauty of Leh-Ladakh, a haven for adventure enthusiasts and bikers.",
+        attractions: "Pangong Lake, Nubra Valley, Magnetic Hill.", bestTime: "May to September",
+        mapLink: "https://maps.google.com/?q=Leh+Ladakh"
+    },
+    {
+        id: 3, title: "Rishikesh", image: "../assets/images/devbhumi.jpg",
+        description: "The yoga capital of the world and a hub for spiritual seekers and river rafting enthusiasts.",
+        attractions: "Laxman Jhula, Ram Jhula, Ganga Aarti, River Rafting.", bestTime: "September to November",
+        mapLink: "https://maps.google.com/?q=Rishikesh"
+    },
+    {
+        id: 4, title: "Dharamshala", image: "../assets/images/dharamshala.jpg",
+        description: "Discover serenity in Dharamshala, home to the Dalai Lama and vibrant Tibetan culture.",
+        attractions: "McLeodGanj, Bhagsu Waterfall, Triund Trek.", bestTime: "March to June",
+        mapLink: "https://maps.google.com/?q=Dharamshala"
+    },
+    {
+        id: 5, title: "Manali", image: "../assets/images/manali.avif",
+        description: "The perfect blend of snow, adventure, and breathtaking Himalayan landscapes.",
+        attractions: "Solang Valley, Rohtang Pass, Hidimba Temple.", bestTime: "October to February",
+        mapLink: "https://maps.google.com/?q=Manali"
+    },
+    {
+        id: 6, title: "Shimla", image: "../assets/images/shimla.avif",
+        description: "A poetry of the hills, written in snow and sun-kissed peaks.",
+        attractions: "Mall Road, Jakhoo Temple, The Ridge.", bestTime: "March to June",
+        mapLink: "https://maps.google.com/?q=Shimla"
+    },
+    {
+        id: 7, title: "Kasol", image: "../assets/images/kasol.avif",
+        description: "Nestled in the Parvati Valley, this 'Mini Israel of India' is a haven for backpackers.",
+        attractions: "Parvati River, Kheerganga Trek, Tosh Village.", bestTime: "October to June",
+        mapLink: "https://maps.google.com/?q=Kasol"
+    },
+    {
+        id: 8, title: "Kufri", image: "../assets/images/kufri.avif",
+        description: "A charming hill station known for its snow-covered peaks and skiing slopes.",
+        attractions: "Mahasu Peak, Skiing, Himalayan Nature Park.", bestTime: "November to March",
+        mapLink: "https://maps.google.com/?q=Kufri"
+    },
+    {
+        id: 9, title: "Dehradun", image: "../assets/images/dehradun.jpg",
+        description: "The picturesque capital of Uttarakhand, nestled in the Doon Valley.",
+        attractions: "Robber's Cave, Forest Research Institute.", bestTime: "March to June",
+        mapLink: "https://maps.google.com/?q=Dehradun"
+    },
+    {
+        id: 10, title: "Amritsar", image: "../assets/images/amritsar.avif",
+        description: "The spiritual and cultural heart of Punjab, home to the serene Golden Temple.",
+        attractions: "Golden Temple, Jallianwala Bagh, Wagah Border.", bestTime: "October to March",
+        mapLink: "https://maps.google.com/?q=Amritsar"
+    },
+    {
+        id: 11, title: "Mussoorie", image: "../assets/images/mussoorie.avif",
+        description: "The 'Queen of the Hills' offering colonial charm and misty mountain walks.",
+        attractions: "Kempty Falls, Camel's Back Road, Gun Hill.", bestTime: "March to June",
+        mapLink: "https://maps.google.com/?q=Mussoorie"
+    },
+    {
+        id: 12, title: "Nainital", image: "../assets/images/nainital.avif",
+        description: "A picturesque hill station built around a stunning, mango-shaped lake.",
+        attractions: "Naini Lake, Snow View Point, Mall Road.", bestTime: "March to June",
+        mapLink: "https://maps.google.com/?q=Nainital"
+    },
+    {
+        id: 13, title: "Spiti", image: "../assets/images/spiti.avif",
+        description: "A cold desert mountain valley offering raw, rugged landscapes and monasteries.",
+        attractions: "Key Monastery, Chandratal Lake, Kunzum Pass.", bestTime: "May to October",
+        mapLink: "https://maps.google.com/?q=Spiti"
+    },
+    {
+        id: 14, title: "Auli", image: "../assets/images/auli.jpg",
+        description: "A premium ski resort destination offering panoramic views of the Nanda Devi Peaks.",
+        attractions: "Auli Ropeway, Skiing, Trekking.", bestTime: "December to March",
+        mapLink: "https://maps.google.com/?q=Auli"
+    },
+    {
+        id: 15, title: "Jaisalmer", image: "../assets/images/jaisalmer.jpg",
+        description: "Known as the 'Golden City', offering magnificent yellow sandstone architecture.",
+        attractions: "Jaisalmer Fort, Sam Sand Dunes, Gadisar Lake.", bestTime: "October to March",
+        mapLink: "https://maps.google.com/?q=Jaisalmer"
+    }
+];
 
-            {
-                id: 2,
-                title: "Leh-Ladakh",
-                image: "../assets/images/ladakh.jpg",
-                description: "Explore the rugged beauty of Leh-Ladakh, a haven for adventure enthusiasts and bikers.",
-                attractions: " Pangong Lake, Nubra Valley, Magnetic Hill.",
-                bestTime: " May to September",
-                mapLink: "https://maps.app.goo.gl/TFJXeRBZ1TLaeBCP7"
-            },
+function loadDestinations() {
+    const container = document.getElementById('destinations-container');
+    container.innerHTML = '';
 
-            {
-                id: 3,
-                title: "Rishikesh",
-                image: "../assets/images/devbhumi.jpg",
-                description: "The yoga capital of the world and a hub for spiritual seekers and river rafting enthusiasts.",
-                attractions: " Laxman Jhula, Ram Jhula, Ganga Aarti, River Rafting.",
-                bestTime: " September to November",
-                mapLink: "https://maps.app.goo.gl/eadQdWKpSKxhNBXd9"
-            },
+    destinationsData.forEach((dest, index) => {
+        // Added an image wrapper for the hover zoom effect and rel="noopener" for security
+        const cardHTML = `
+        <div class="card" style="animation-delay: ${index * 0.05}s">
+            <div class="card-img-wrapper">
+                <img src="${dest.image}" alt="${dest.title}" class="card-img">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">${dest.title}</h3>
+                <p class="card-desc">${dest.description}</p>
+                <div class="card-details">
+                    <span><strong>Key Attractions: </strong>${dest.attractions}</span>
+                    <span><strong>Best Time to Visit: </strong>${dest.bestTime}</span>
+                </div>
+                <a href="${dest.mapLink}" class="card-btn" target="_blank" rel="noopener noreferrer">View on Map</a>
+            </div>
+        </div> 
+        `; 
+        container.innerHTML += cardHTML;
+    });
+}
 
-            {
-                id: 4,
-                title: "Dharamshala",
-                image: "../assets/images/dharamshala.jpg",
-                description: "Discover serenity in Dharamshala, home to the Dalai Lama and Vibrant Tibetan culture.",
-                attractions: " McLeodGanj, Bhagsu Waterfall, Triund Trek.",
-                bestTime: " March to June",
-                mapLink: "https://maps.app.goo.gl/y2tET1iU3z2yPjnC7"
-            },
-
-            {
-                id: 5,
-                title: "Manali",
-                image: "../assets/images/manali.avif",
-                description: "The perfect blend of snow, adventure, and breathtaking Himalayan landscapes.",
-                attractions: " Solang Valley, Rohtang Pass, Hidimba Temple.",
-                bestTime: " October to February",
-                mapLink: "https://maps.app.goo.gl/K7SuYpyTgLyi1twx9"
-            },
-
-            {
-                id: 6,
-                title: "Shimla",
-                image: "../assets/images/shimla.avif",
-                description: "A poetry of the hills, written in snow and sun-kissed peaks.",
-                attractions: " Mall Road, Jakhoo Temple, The ridge.",
-                bestTime: " March to June",
-                mapLink: "https://maps.app.goo.gl/cr5sBTX8SaEDQo6P8"
-            },
-
-            {
-                id: 7,
-                title: "Kasol",
-                image: "../assets/images/kasol.avif",
-                description: "Nestled in the Parvati Valley, this 'Mini Israel of India' is a haven for backpackers, trekkers, and nature lovers.",
-                attractions: " Parvati River, Kheerganga Trek, Tosh Village.",
-                bestTime: " October to June",
-                mapLink: "https://maps.app.goo.gl/8LB6Jgw6RgcGHbju5"
-            },
-
-            {
-                id: 8,
-                title: "Kufri",
-                image: "../assets/images/kufri.avif",
-                description: "A charming hill station known for its snow-covered peaks, skiing slopes, and the Himalayan Nature Park.",
-                attractions: " Mahasu Peak, Skiing, Himalayan Nature Park.",
-                bestTime: " November to March",
-                mapLink: "https://maps.app.goo.gl/Sf8uHk8M6Xrb43J29"
-            },
-
-            {
-                id: 9,
-                title: "Dehradun",
-                image: "../assets/images/dehradun.jpg",
-                description: "The picturesque capital of Uttarakhand, nestled in the Doon Valley and surrounded by the Himalayas.",
-                attractions: " Robber's Cave, Forest Research Institute, Sahastradhara.",
-                bestTime: " March to June",
-                mapLink: "https://maps.app.goo.gl/oisK4HPq4Ne7PK6GA"
-            },
-
-            {
-                id: 10,
-                title: "Amritsar",
-                image: "../assets/images/amritsar.avif",
-                description: "The Spiritual and cultural heart of Punjab, home to the spectacular and serene Golden Temple.",
-                attractions: " Golden Temple, Jallianwala Bagh, Wagah Border.",
-                bestTime: " October to March",
-                mapLink: "https://maps.app.goo.gl/JQpnnBvfX74whBuXA"
-            },
-
-            {
-                id: 11,
-                title: "Mussoorie",
-                image: "../assets/images/mussoorie.avif",
-                description: "The 'Queen of the Hills' offering colonial charm, cascading waterfalls, and misty mountain walks.",
-                attractions: " Kempty Falls, Camel's Back Road, Gun Hill.",
-                bestTime: " March to June",
-                mapLink: "https://maps.app.goo.gl/r4c3HZip1BHWAdH69"
-            },
-
-            {
-                id: 12,
-                title: "Nainital",
-                image: "../assets/images/nainital.avif",
-                description: "A picturesque hill station built around a stunning, mango-shaped lake in Uttarakhand.",
-                attractions: " Naini Lake, Snow View Point, Mall Road.",
-                bestTime: " March to June",
-                mapLink: "https://maps.app.goo.gl/oZp2HCDfxdWuh4om8"
-            },
-
-            {
-                id: 13,
-                title: "Spiti",
-                image: "../assets/images/spiti.avif",
-                description: "A cold desert mountain Valley offering raw, rugged landscapes and ancient Buddhist monasteries.",
-                attractions: " Key Monastery, Chandratal Lake, Kunzum Pass.",
-                bestTime: " May to October",
-                mapLink: "https://maps.app.goo.gl/vUyDDTdR7wqv5hXc8"
-            },
-
-            {
-                id: 14,
-                title: "Auli",
-                image: "../assets/images/auli.jpg",
-                description: "A premium ski resort destination offering panoramic views of the Nanda Devi Peaks.",
-                attractions: " Auli Ropeway, skiing, Trekking.",
-                bestTime: " December to March",
-                mapLink: "https://maps.app.goo.gl/1F8SwLpTHZ4279EMA"
-            },
-
-            {
-                id: 15,
-                title: "Jaisamler",
-                image: "../assets/images/jaisalmer.jpg",
-                description: "Knows as the 'Golden City', Offering magnificent yellow sandstone architecture and the endless Thar Desert.",
-                attractions: " Jaisalmer Fort, Sam Sand Dunes, Patwon ki Haveli, Gadisar Lake.",
-                bestTime: " October to March",
-                mapLink: "https://maps.app.goo.gl/nyC2AUhqJstTV24G8"
-            }
-
-        ];
-
-        function loadDestinations(){
-            const container=document.getElementById('destinations-container');
-            container.innerHTML='';
-
-            destinationsData.forEach(dest=>
-            {
-                const cardHTML= `
-                <div class="card">
-                    <img src="${dest.image}" alt="${dest.title}" class="card-img">
-                    <div class="card-body">
-                        <h3 class="card-title">${dest.title}</h3>
-                        <p class="card-desc">${dest.description}</p>
-                        <div class="card-details">
-                            <span><strong>Key Attractions:</strong>${dest.attractions}</span>
-                            <span><strong>Best Time to Visit:</strong>${dest.bestTime}</span>
-                        </div>
-                        <a href="${dest.mapLink}" class="card-btn" target="_blank">View on Map</a>
-                    </div>
-                </div> 
-                `; 
-
-                container.innerHTML+=cardHTML;
-            });
-        }
-        document.addEventListener('DOMContentLoaded',loadDestinations);
+document.addEventListener('DOMContentLoaded', loadDestinations);
 </script>
 
 </body>

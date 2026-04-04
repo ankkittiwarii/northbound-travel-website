@@ -20,7 +20,7 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 }
 
 // ✅ check user
-$stmt = $conn->prepare("SELECT id,password FROM users WHERE email=?");
+$stmt = $conn->prepare("SELECT id,name,password FROM users WHERE email=?");
 $stmt->bind_param("s",$email);
 $stmt->execute();
 
@@ -33,8 +33,8 @@ if($result->num_rows == 1){
     if(password_verify($password,$user['password'])){
 
         $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_name'] = $user['name']; // 🔥 ADD THIS
 
-        // ✅ redirect logic
         if(!empty($redirect)){
             header("Location: ../pages/" . $redirect);
         } else {

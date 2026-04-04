@@ -1,18 +1,25 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Winter Essentials | Northbound Tips</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter Essentials | NorthBound Tips</title>
+    <link rel="stylesheet" href="../assets/css/navbar.css">
     <link rel="stylesheet" href="../assets/css/blog2.css">
 </head>
-
 <body>
+
+    <?php include "../includes/navbar.php"; ?>
+
     <div class="hero">
         <h1>Winter Packing Guide</h1>
     </div>
+    
     <div class="content">
-        <a href="../pages/blog.php" style="color:#ff4d00; text-decoration:none; font-weight:bold;">← BACK</a>
+        <a href="blog.php" class="back-link">← Back to Journal</a>
         <h2>Mastering the 3-Layer Rule</h2>
         <p>Weather in the North can be unpredictable. The key to staying comfortable is "Layering."</p>
 
@@ -35,6 +42,7 @@
             </div>
         </div>
     </div>
-</body>
 
+    <script src="../assets/js/loginCheck.js"></script>
+</body>
 </html>

@@ -5,255 +5,267 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Featured Activities</title>
-<link rel="stylesheet" href="../assets/css/activities.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthBound - Featured Activities</title>
+    <link rel="stylesheet" href="../assets/css/navbar.css">   
+    <link rel="stylesheet" href="../assets/css/activities.css">
 </head>
 
 <body>
+    
+<?php include "../includes/navbar.php"; ?>
 
-<header>
-    <div class="logo"><img src="../assets/images/logoimage.jfif" alt="logo">NorthBound</div>
-    <nav>
-        <a href="../index.php">Home</a>
-        <a href="../pages/loginsignup.php">Login</a>
-        <a href="../pages/destination.php">Destinations</a>
-        <a href="../pages/Hotels.php">Hotels</a>
-        <a href="../pages/packages.php">Packages</a>
+<section class="activities-section">
+    <div class="section-header">
+        <span class="category-label">ADVENTURE AWAITS</span>
+        <h2 class="section-title">Featured Activities</h2>
+        <p class="section-subtitle">Dive into the thrill of the North with our handpicked adventures.</p>
+    </div>
 
-        <!-- 🔥 FIXED -->
-        <a href="#" onclick="checkLogin('booking.php')">Bookings</a>
-        <a href="#" onclick="checkLogin('contact.php')">Contact</a>
-        
-        <div class="dropdown">
-            <button class="dropbtn">More ▼</button>
-            <div class="dropdown-content">
-                <a href="../pages/Special.php">Special Offers</a>
-                <a href="../pages/blog.php">Blogs</a>
-                <a href="../pages/faq.php">FAQs</a>
-                <a href="../pages/gallery.php">Gallery</a>
-            </div>
-        </div>
-    </nav>
-</header>
-
-<h2 class="section-title"><u>Featured Activities</u></h2>
-<p class="section-subtitle">"Dive into the thrill of the North with our handpicked adventures."</p>
-
-<div class="activities-grid">
-
+    <div class="activities-grid">
         <div class="card">
-            <img src="../assets/images/riverrafting.jpg" alt="River Rafting in Rishikesh">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/riverrafting.jpg" alt="River Rafting in Rishikesh">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">River Rafting in Rishikesh</h3>
-                <p class="card-description"><b>Navigate through thrilling rapids on the sacred Ganga river.</b></p>
+                <p class="card-description">Navigate through thrilling rapids on the sacred Ganga river.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Beginner to Advanced<br>
-                    <strong>Duration:</strong> 3-4 hours<br>
-                    <strong>Location:</strong> Rishikesh, Uttarakhand<br>
-                    <strong>Safety Tips:</strong> Wear life jackets, follow guide instructions.<br>
+                    <span><strong>Difficulty:</strong> Beginner to Advanced</span>
+                    <span><strong>Duration:</strong> 3-4 hours</span>
+                    <span><strong>Location:</strong> Rishikesh, Uttarakhand</span>
+                    <span><strong>Safety Tips:</strong> Wear life jackets, follow guide instructions.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/skiing.jpg" alt="Skiing in Gulmarg">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/skiing.jpg" alt="Skiing in Gulmarg">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Skiing in Gulmarg</h3>
-                <p class="card-description"><b>Grid through pristine snow slopes in Asia's finest skiing destination.</b></p>
+                <p class="card-description">Glide through pristine snow slopes in Asia's finest skiing destination.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Beginner to Advanced<br>
-                    <strong>Duration:</strong> 3-4 hours per sessions<br>
-                    <strong>Location:</strong> Gulmarg, Kashmir<br>
-                    <strong>Safety Tips:</strong> Take lessons from certified instructors.<br>
+                    <span><strong>Difficulty:</strong> Beginner to Advanced</span>
+                    <span><strong>Duration:</strong> 3-4 hours per session</span>
+                    <span><strong>Location:</strong> Gulmarg, Kashmir</span>
+                    <span><strong>Safety Tips:</strong> Take lessons from certified instructors.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/jakhootemple.jpg" alt="Jakhoo Temple Trek in Shimla">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/jakhootemple.jpg" alt="Jakhoo Temple Trek in Shimla">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Jakhoo Temple Trek in Shimla</h3>
-                <p class="card-description"><b>Trek to Shimla's highest point and visit the famous Hanuman Temple.</b></p>
+                <p class="card-description">Trek to Shimla's highest point and visit the famous Hanuman Temple.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Moderate<br>
-                    <strong>Duration:</strong> 2-3 hours<br>
-                    <strong>Location:</strong> Jakhoo Hill, shimla<br>
-                    <strong>Safety Tips:</strong> Start Early Morning, carry Water.<br>
+                    <span><strong>Difficulty:</strong> Moderate</span>
+                    <span><strong>Duration:</strong> 2-3 hours</span>
+                    <span><strong>Location:</strong> Jakhoo Hill, Shimla</span>
+                    <span><strong>Safety Tips:</strong> Start early morning, carry water.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/triundtrek.jfif" alt="Triund Trek in Dharamshala">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/triundtrek.jfif" alt="Triund Trek in Dharamshala">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Triund Trek in Dharamshala</h3>
-                <p class="card-description"><b>Experience breathtaking Himalayan views on this popular trek near McLeodGanj.</b></p>
+                <p class="card-description">Experience breathtaking Himalayan views on this popular trek near McLeodGanj.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Moderate<br>
-                    <strong>Duration:</strong> 4-6 hours(one-way)<br>
-                    <strong>Location:</strong> McLeodGanj, Dharamshala<br>
-                    <strong>Safety Tips:</strong> Start Early Morning, carry Water, wear appropriate footwear.<br>
+                    <span><strong>Difficulty:</strong> Moderate</span>
+                    <span><strong>Duration:</strong> 4-6 hours (one-way)</span>
+                    <span><strong>Location:</strong> McLeodGanj, Dharamshala</span>
+                    <span><strong>Safety Tips:</strong> Start early, carry water, wear proper footwear.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/lehladakh.jfif" alt="Mountain Biking in Leh-Ladakh">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/lehladakh.jfif" alt="Mountain Biking in Leh-Ladakh">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Mountain Biking in Leh-Ladakh</h3>
-                <p class="card-description"><b>Ride through hide-altitude passes and barren, rugged mountain terrains.</b></p>
+                <p class="card-description">Ride through high-altitude passes and barren, rugged mountain terrains.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Advanced<br>
-                    <strong>Duration:</strong> Half-Day or Full-Day<br>
-                    <strong>Location:</strong> Khardung La, Leh-Ladakh<br>
-                    <strong>Safety Tips:</strong> Acclimatize properly before riding, wear a helmat and protective gear.<br>
+                    <span><strong>Difficulty:</strong> Advanced</span>
+                    <span><strong>Duration:</strong> Half-Day or Full-Day</span>
+                    <span><strong>Location:</strong> Khardung La, Leh-Ladakh</span>
+                    <span><strong>Safety Tips:</strong> Acclimatize properly, wear a helmet and protective gear.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/paragliding.jfif" alt="Paragliding in Manali">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/paragliding.jfif" alt="Paragliding in Manali">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Paragliding in Manali</h3>
-                <p class="card-description"><b>Soar high above the Solang Valley and take in panoramic views of the snow-capped peaks.</b></p>
+                <p class="card-description">Soar high above the Solang Valley and take in panoramic views of snow-capped peaks.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Beginner<br>
-                    <strong>Duration:</strong> 15-20 minutes<br>
-                    <strong>Location:</strong> Solang Valley, Manali<br>
-                    <strong>Safety Tips:</strong> Fly only with certified tandem piolets.<br>
+                    <span><strong>Difficulty:</strong> Beginner</span>
+                    <span><strong>Duration:</strong> 15-20 minutes</span>
+                    <span><strong>Location:</strong> Solang Valley, Manali</span>
+                    <span><strong>Safety Tips:</strong> Fly only with certified tandem pilots.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/kheerganga.jpg" alt="Kheerganga Trek in Kasol">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/kheerganga.jpg" alt="Kheerganga Trek in Kasol">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Kheerganga Trek in Kasol</h3>
-                <p class="card-description"><b>Trek through the Parvati Valley and relex in the nature hot water springs at the summit.</b></p>
+                <p class="card-description">Trek through the Parvati Valley and relax in natural hot water springs at the summit.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Moderate<br>
-                    <strong>Duration:</strong> 5-7 hours<br>
-                    <strong>Location:</strong> Parvati Valley, Kasol<br>
-                    <strong>Safety Tips:</strong> Stay on the market trail, carry a basic first-aid kit and warm layers.<br>
+                    <span><strong>Difficulty:</strong> Moderate</span>
+                    <span><strong>Duration:</strong> 5-7 hours</span>
+                    <span><strong>Location:</strong> Parvati Valley, Kasol</span>
+                    <span><strong>Safety Tips:</strong> Stay on the marked trail, carry a basic first-aid kit.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/snowboaring.jpg" alt="Snowboarding in Kufri">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/snowboaring.jpg" alt="Snowboarding in Kufri">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Snowboarding in Kufri</h3>
-                <p class="card-description"><b>Enjoy Winter sports and slide down the snowy slopes of Mahasu Peak.</b></p>
+                <p class="card-description">Enjoy winter sports and slide down the snowy slopes of Mahasu Peak.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Beginner to Moderate<br>
-                    <strong>Duration:</strong> 1-2 hours<br>
-                    <strong>Location:</strong> Mahasu Peak, Kufri<br>
-                    <strong>Safety Tips:</strong> Wear Proper snow gear, start on the gentle slopes if you are a Beginner.<br>
+                    <span><strong>Difficulty:</strong> Beginner to Moderate</span>
+                    <span><strong>Duration:</strong> 1-2 hours</span>
+                    <span><strong>Location:</strong> Mahasu Peak, Kufri</span>
+                    <span><strong>Safety Tips:</strong> Wear proper snow gear, start on gentle slopes.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/caveexp.jpg" alt="Cave Exploration in Dehradun">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/caveexp.jpg" alt="Cave Exploration in Dehradun">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Cave Exploration in Dehradun</h3>
-                <p class="card-description"><b>Wade through the Knee-deep waters of Robber's Cave in a narrow, natural gorge.</b></p>
+                <p class="card-description">Wade through the knee-deep waters of Robber's Cave in a narrow, natural gorge.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Easy<br>
-                    <strong>Duration:</strong> 1-2 hours<br>
-                    <strong>Location:</strong> Robber's Cave, Dehradun<br>
-                    <strong>Safety Tips:</strong> Wear water-resistant shoes, watch out for slippery rocks.<br>
+                    <span><strong>Difficulty:</strong> Easy</span>
+                    <span><strong>Duration:</strong> 1-2 hours</span>
+                    <span><strong>Location:</strong> Robber's Cave, Dehradun</span>
+                    <span><strong>Safety Tips:</strong> Wear water-resistant shoes, watch for slippery rocks.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/heritagewalk.jpg" alt="Heritage Walk in Amritsar">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/heritagewalk.jpg" alt="Heritage Walk in Amritsar">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Heritage Walk in Amritsar</h3>
-                <p class="card-description"><b>Immerse yourself in the rich history and spirituality surrounding the Golden Temple Complex.</b></p>
+                <p class="card-description">Immerse yourself in the rich history and spirituality surrounding the Golden Temple Complex.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Easy<br>
-                    <strong>Duration:</strong> 2-3 hours<br>
-                    <strong>Location:</strong> Golden Temple Area, Amritsar<br>
-                    <strong>Safety Tips:</strong> Dress Modestly, cover your head, and stay hydrated.<br>
+                    <span><strong>Difficulty:</strong> Easy</span>
+                    <span><strong>Duration:</strong> 2-3 hours</span>
+                    <span><strong>Location:</strong> Golden Temple Area, Amritsar</span>
+                    <span><strong>Safety Tips:</strong> Dress modestly, cover your head, and stay hydrated.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/naturewalk.jpg" alt="Nature Walk in Mussoorie">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/naturewalk.jpg" alt="Nature Walk in Mussoorie">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Nature Walk in Mussoorie</h3>
-                <p class="card-description"><b>Take a serene walk along Camel's Back Road for stunning sunset views of the Himalayas.</b></p>
+                <p class="card-description">Take a serene walk along Camel's Back Road for stunning sunset views of the Himalayas.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Easy<br>
-                    <strong>Duration:</strong> 1-2 hours<br>
-                    <strong>Location:</strong> Camel's Back Road, Mussoorie<br>
-                    <strong>Safety Tips:</strong> Watch out for Monkeys, stick to the main paved road.<br>
+                    <span><strong>Difficulty:</strong> Easy</span>
+                    <span><strong>Duration:</strong> 1-2 hours</span>
+                    <span><strong>Location:</strong> Camel's Back Road, Mussoorie</span>
+                    <span><strong>Safety Tips:</strong> Watch out for monkeys, stick to the main paved road.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/boating.jpg" alt="Boating in Nainital">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/boating.jpg" alt="Boating in Nainital">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Boating in Nainital</h3>
-                <p class="card-description"><b>Enjoy a peaceful rowboat or pedal boat ride on the iconic eye-shaped Naini Lake.</b></p>
+                <p class="card-description">Enjoy a peaceful rowboat or pedal boat ride on the iconic eye-shaped Naini Lake.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Easy<br>
-                    <strong>Duration:</strong> 30-60 minutes<br>
-                    <strong>Location:</strong> Naini Lake, Nainital<br>
-                    <strong>Safety Tips:</strong> Always wear a life jackets, do not stand up in the Boat.<br>
+                    <span><strong>Difficulty:</strong> Easy</span>
+                    <span><strong>Duration:</strong> 30-60 minutes</span>
+                    <span><strong>Location:</strong> Naini Lake, Nainital</span>
+                    <span><strong>Safety Tips:</strong> Always wear a life jacket, do not stand up in the boat.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/stargazing.jpg" alt="Stargazing in Spiti">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/stargazing.jpg" alt="Stargazing in Spiti">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Stargazing in Spiti</h3>
-                <p class="card-description"><b>Witness the Milky Way in all its glory from the high-altitude, pollution-free skies.</b></p>
+                <p class="card-description">Witness the Milky Way in all its glory from the high-altitude, pollution-free skies.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Easy<br>
-                    <strong>Duration:</strong> OverNight<br>
-                    <strong>Location:</strong> Kibber Village, Spiti<br>
-                    <strong>Safety Tips:</strong> Temperatures drop drastically at night, wear heavy thermal layers.<br>
+                    <span><strong>Difficulty:</strong> Easy</span>
+                    <span><strong>Duration:</strong> Overnight</span>
+                    <span><strong>Location:</strong> Kibber Village, Spiti</span>
+                    <span><strong>Safety Tips:</strong> Temperatures drop drastically, wear heavy thermal layers.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/skiingauli.webp" alt="Skiing in Auli">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/skiingauli.webp" alt="Skiing in Auli">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Skiing in Auli</h3>
-                <p class="card-description"><b>Carve through the powder on some of India's longest and finest skiing slopes.</b></p>
+                <p class="card-description">Carve through the powder on some of India's longest and finest skiing slopes.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Moderate to Advanced<br>
-                    <strong>Duration:</strong> Half-Day or Full-Day<br>
-                    <strong>Location:</strong> Auli Ski Resort, Uttarakhand<br>
-                    <strong>Safety Tips:</strong> Use UV protection sunglasses, follow the designated ski routes.<br>
+                    <span><strong>Difficulty:</strong> Moderate to Advanced</span>
+                    <span><strong>Duration:</strong> Half-Day or Full-Day</span>
+                    <span><strong>Location:</strong> Auli Ski Resort, Uttarakhand</span>
+                    <span><strong>Safety Tips:</strong> Use UV protection sunglasses, follow designated routes.</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-    <img src="../assets/images/camelsafari.jpg" alt="Camel Safari in Jaisalmer">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="../assets/images/camelsafari.jpg" alt="Camel Safari in Jaisalmer">
+            </div>
             <div class="card-content">
                 <h3 class="card-title">Camel Safari in Jaisalmer</h3>
-                <p class="card-description"><b>Experience the magic of the Thar Desert under Starlit Skies.</b></p>
+                <p class="card-description">Experience the magic of the Thar Desert under starlit skies.</p>
                 <div class="card-details">
-                    <strong>Difficulty level:</strong>Beginner<br>
-                    <strong>Duration:</strong> 2 hours to OverNight<br>
-                    <strong>Location:</strong> Jaisalmer, Rajasthan<br>
-                    <strong>Safety Tips:</strong> Stay hydrated, wear sun protection, follow guide's instructions.<br>
+                    <span><strong>Difficulty:</strong> Beginner</span>
+                    <span><strong>Duration:</strong> 2 hours to Overnight</span>
+                    <span><strong>Location:</strong> Jaisalmer, Rajasthan</span>
+                    <span><strong>Safety Tips:</strong> Stay hydrated, wear sun protection, follow instructions.</span>
+                </div>
             </div>
         </div>
     </div>
+</section>
 
-<script>
-
-function checkLogin(page){
-
-    const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
-
-    if(isLoggedIn === "yes"){
-        window.location.href = "../pages/" + page;
-    } else {
-        if(confirm("⚠️ Login required to continue")){
-            window.location.href = "../pages/loginsignup.php?redirect=" + page;
-        }
-    }
-}
-
-</script>
+<script src="../assets/js/loginCheck.js"></script>
 </body>
 </html>
