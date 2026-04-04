@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <title>NorthBound</title>
     <link rel="stylesheet" href="assets/css/interfaces.css">
@@ -10,21 +9,21 @@
         <div class="logo"><img src="assets/images/logoimage.jfif" alt="logo">NorthBound</div>
 
         <nav>
-            <a href="pages/loginsignup.html">Login</a>
-            <a href="pages/destination.html">Destinations</a>
-            <a href="pages/Hotels.html">Hotels</a>
-            <a href="pages/activities.html">Activities</a>
-            <a href="pages/packages.html">Packages</a>
+            <a href="pages/loginsignup.php">Login</a>
+            <a href="pages/destination.php">Destinations</a>
+            <a href="pages/Hotels.php">Hotels</a>
+            <a href="pages/activities.php">Activities</a>
+            <a href="pages/packages.php">Packages</a>
             <a href="pages/booking.php" onclick="checkLogin('booking.php')">Bookings</a>
-            <a href="pages/contact.html" onclick="checkLogin('contact.html')">Contact</a>
+            <a href="pages/contact.php" onclick="checkLogin('contact.php')">Contact</a>
 
             <div class="dropdown">
                 <button class="dropbtn">More ▼</button>
                 <div class="dropdown-content">
-                    <a href="pages/Special.html">Special Offers</a>
-                    <a href="pages/blog.html">Blogs</a>
-                    <a href="pages/faq.html">FAQs</a>
-                    <a href="pages/gallery.html">Gallery</a>
+                    <a href="pages/Special.php">Special Offers</a>
+                    <a href="pages/blog.php">Blogs</a>
+                    <a href="pages/faq.php">FAQs</a>
+                    <a href="pages/gallery.php">Gallery</a>
                 </div>
             </div>
         </nav>
@@ -40,15 +39,13 @@
             </p>
             <section>
                 <div class="buttons">
-                    <button class="btn1" onclick="window.open('pages/packages.html', '_blank')">View Packages</button>
-                    <button class="btn2" onclick="window.open('pages/destination.html', '_blank')">Explore
-                        Destinations</button>
+                    <button class="btn1" onclick="window.open('pages/packages.php')">View Packages</button>
+                    <button class="btn2" onclick="window.open('pages/destination.php')">Explore Destinations</button>
                 </div>
         </div>
     </section>
 
-    <script>
-        
+<script>       
 function checkLogin(page){
 
     const isLoggedIn = "<?php echo isset($_SESSION['user_id']) ? 'yes' : 'no'; ?>";
@@ -57,7 +54,7 @@ function checkLogin(page){
         window.location.href = page;
     } else {
         if(confirm("⚠️ Login required to continue")){
-            window.location.href = "pages/loginsignup.html?redirect=" + page;
+            window.location.href = "pages/loginsignup.php?redirect=" + page;
         }
     }
 }
@@ -84,9 +81,7 @@ function checkLogin(page){
         }
         cbground();
         setInterval(cbground, 5000);
-
-    </script>
+</script>
 
 </body>
-
 </html>
