@@ -3,15 +3,23 @@ session_start();
 
 include "db.php";
 
-$email = $_POST['email'] ?? '';
+$email = trim($_POST['email'] ?? '');
 $password = $_POST['password'] ?? '';
 $redirect = $_POST['redirect'] ?? '';
 
+// ✅ validation
 if(empty($email) || empty($password)){
-    header("Location: ../pages/loginsignup.html?error=empty");
+    header("Location: ../pages/loginsignup.php?error=empty");
     exit();
 }
 
+// ✅ email format check
+if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    header("Location: ../pages/loginsignup.php?error=invalid_email");
+    exit();
+}
+
+// ✅ check user
 $stmt = $conn->prepare("SELECT id,password FROM users WHERE email=?");
 $stmt->bind_param("s",$email);
 $stmt->execute();
@@ -26,20 +34,21 @@ if($result->num_rows == 1){
 
         $_SESSION['user_id'] = $user['id'];
 
+        // ✅ redirect logic
         if(!empty($redirect)){
             header("Location: ../pages/" . $redirect);
         } else {
-            header("Location: ../index.html");
+            header("Location: ../index.php");
         }
         exit();
 
     } else {
-        header("Location: ../pages/loginsignup.html?error=wrongpass");
+        header("Location: ../pages/loginsignup.php?error=wrongpass");
         exit();
     }
 
 } else {
-    header("Location: ../pages/loginsignup.html?error=nouser");
+    header("Location: ../pages/loginsignup.php?error=nouser");
     exit();
 }
 ?>

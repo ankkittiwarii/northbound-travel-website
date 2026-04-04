@@ -1,12 +1,12 @@
 <?php
 
 if(session_status() === PHP_SESSION_NONE){
-session_start();
+    session_start();
 }
 
 if(!isset($_SESSION['admin'])){
-header("Location: login.php");
-exit();
+    header("Location: login.php");
+    exit();
 }
 
 include "../backend/db.php";
@@ -30,10 +30,15 @@ background:#f4f6f8;
 padding:40px;
 }
 
+h2{
+margin-bottom:20px;
+}
+
 table{
 width:100%;
 border-collapse:collapse;
 background:white;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
 }
 
 th,td{
@@ -47,9 +52,20 @@ background:#1a242f;
 color:white;
 }
 
-a{
+tr:hover{
+background:#f9f9f9;
+}
+
+.delete-btn{
 color:red;
 text-decoration:none;
+font-weight:bold;
+}
+
+.no-data{
+text-align:center;
+padding:20px;
+color:#777;
 }
 
 </style>
@@ -70,24 +86,33 @@ text-decoration:none;
 <th>Action</th>
 </tr>
 
+<?php if(mysqli_num_rows($result) > 0){ ?>
+
 <?php while($row = mysqli_fetch_assoc($result)){ ?>
 
 <tr>
 
-<td><?php echo $row['id']; ?></td>
-
-<td><?php echo $row['name']; ?></td>
-
-<td><?php echo $row['email']; ?></td>
-
-<td><?php echo $row['message']; ?></td>
+<td><?php echo htmlspecialchars($row['id']); ?></td>
+<td><?php echo htmlspecialchars($row['name']); ?></td>
+<td><?php echo htmlspecialchars($row['email']); ?></td>
+<td><?php echo htmlspecialchars($row['message']); ?></td>
 
 <td>
-
-<a href="delete_enquiry.php?id=<?php echo $row['id']; ?>">Delete</a>
-
+<a class="delete-btn" 
+href="delete_enquiry.php?id=<?php echo $row['id']; ?>"
+onclick="return confirm('Are you sure you want to delete this enquiry?');">
+Delete
+</a>
 </td>
 
+</tr>
+
+<?php } ?>
+
+<?php } else { ?>
+
+<tr>
+<td colspan="5" class="no-data">No enquiries found 🚫</td>
 </tr>
 
 <?php } ?>

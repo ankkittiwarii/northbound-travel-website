@@ -11,11 +11,18 @@ if(!isset($_SESSION['admin'])){
 
 include "../backend/db.php";
 
-// 🔥 DATA FETCH (stats)
-$totalBookings = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM bookings"))['total'];
-$totalUsers = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM users"))['total'];
-$totalEnquiries = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM contact"))['total'];
+// ✅ safe queries
+$result1 = mysqli_query($conn, "SELECT COUNT(*) as total FROM bookings");
+$totalBookings = mysqli_fetch_assoc($result1)['total'];
 
+$result2 = mysqli_query($conn, "SELECT COUNT(*) as total FROM users");
+$totalUsers = mysqli_fetch_assoc($result2)['total'];
+
+$result3 = mysqli_query($conn, "SELECT COUNT(*) as total FROM contact");
+$totalEnquiries = mysqli_fetch_assoc($result3)['total'];
+
+// ✅ admin name
+$adminName = htmlspecialchars($_SESSION['admin']);
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +76,6 @@ box-shadow:0 5px 10px rgba(0,0,0,0.1);
 margin-bottom:20px;
 }
 
-/* 🔥 NEW STATS CARDS */
 .stats{
 display:flex;
 gap:20px;
@@ -93,6 +99,13 @@ color:#ff4d00;
 
 </style>
 
+<script>
+// ✅ logout confirmation
+function confirmLogout(){
+    return confirm("Are you sure you want to logout?");
+}
+</script>
+
 </head>
 
 <body>
@@ -104,7 +117,7 @@ color:#ff4d00;
 <a href="dashboard.php">Dashboard</a>
 <a href="bookings.php">Bookings</a>
 <a href="enquiries.php">Enquiries</a>
-<a href="logout.php">Logout</a>
+<a href="logout.php" onclick="return confirmLogout()">Logout</a>
 
 </div>
 
@@ -112,10 +125,9 @@ color:#ff4d00;
 
 <div class="card">
 <h2>Admin Dashboard</h2>
-<p>Welcome Admin 👋</p>
+<p>Welcome, <?php echo $adminName; ?> 👋</p>
 </div>
 
-<!-- 🔥 STATS SECTION -->
 <div class="stats">
 
 <div class="stat-box">

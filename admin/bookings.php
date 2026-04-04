@@ -1,12 +1,12 @@
-<?php if(isset($_GET['deleted'])){ ?>
-<script>alert("Booking deleted successfully ✅");</script>
-<?php } ?>
-
-<?php if(isset($_GET['error'])){ ?>
-<script>alert("Delete failed ❌");</script>
-<?php } ?>
-
 <?php
+
+if(isset($_GET['deleted'])){ ?>
+<script>alert("Booking deleted successfully ✅");</script>
+<?php }
+
+if(isset($_GET['error'])){ ?>
+<script>alert("Delete failed ❌");</script>
+<?php }
 
 if(session_status() === PHP_SESSION_NONE){
     session_start();
@@ -70,6 +70,12 @@ text-decoration:none;
 font-weight:bold;
 }
 
+.no-data{
+text-align:center;
+padding:20px;
+color:#777;
+}
+
 </style>
 
 </head>
@@ -83,6 +89,7 @@ font-weight:bold;
 <tr>
 <th>ID</th>
 <th>Name</th>
+<th>Email</th>
 <th>Phone</th>
 <th>Destination</th>
 <th>Persons</th>
@@ -90,24 +97,36 @@ font-weight:bold;
 <th>Action</th>
 </tr>
 
+<?php if(mysqli_num_rows($result) > 0){ ?>
+
 <?php while($row = mysqli_fetch_assoc($result)){ ?>
 
 <tr>
 
-<td><?php echo $row['id']; ?></td>
-<td><?php echo $row['name']; ?></td>
-<td><?php echo $row['phone']; ?></td>
-<td><?php echo $row['destination']; ?></td>
-<td><?php echo $row['persons']; ?></td>
-<td><?php echo $row['travel_date']; ?></td>
+<td><?php echo htmlspecialchars($row['id']); ?></td>
+<td><?php echo htmlspecialchars($row['name']); ?></td>
+<td><?php echo htmlspecialchars($row['email']); ?></td>
+<td><?php echo htmlspecialchars($row['phone']); ?></td>
+<td><?php echo htmlspecialchars($row['destination']); ?></td>
+<td><?php echo htmlspecialchars($row['persons']); ?></td>
+<td><?php echo htmlspecialchars($row['travel_date']); ?></td>
 
 <td>
-<a class="delete-btn" href="delete_booking.php?id=<?php echo $row['id']; ?>" 
+<a class="delete-btn" 
+href="delete_booking.php?id=<?php echo $row['id']; ?>" 
 onclick="return confirm('Are you sure you want to delete this booking?');">
 Delete
 </a>
 </td>
 
+</tr>
+
+<?php } ?>
+
+<?php } else { ?>
+
+<tr>
+<td colspan="8" class="no-data">No bookings found 🚫</td>
 </tr>
 
 <?php } ?>

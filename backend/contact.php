@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['user_id'])) {
-    header("Location: ../pages/loginsignup.html?redirect=contact.html");
+    header("Location: ../pages/loginsignup.php?redirect=contact.php");
     exit();
 }
 
@@ -10,30 +10,42 @@ include "db.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    $name = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $message = trim($_POST['message']);
+    $user_id = $_SESSION['user_id'];
 
-    // 🔥 VALIDATION
-    if(empty($name) || empty($email) || empty($message)){
-        header("Location: ../pages/contact.html?error=empty");
+    // ✅ CHECK USER EXIST
+    $checkUser = $conn->prepare("SELECT email FROM users WHERE id=?");
+    $checkUser->bind_param("i",$user_id);
+    $checkUser->execute();
+    $resultUser = $checkUser->get_result();
+
+    if($resultUser->num_rows == 0){
+        session_destroy();
+        header("Location: ../pages/loginsignup.php");
         exit();
     }
 
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        header("Location: ../pages/contact.html?error=invalid_email");
+    $user = $resultUser->fetch_assoc();
+    $email = $user['email'];
+
+    // ✅ SAFE INPUT
+    $name = trim($_POST['name'] ?? '');
+    $message = trim($_POST['message'] ?? '');
+
+    // ✅ VALIDATION
+    if(empty($name) || empty($message)){
+        header("Location: ../pages/contact.php?error=empty");
         exit();
     }
 
-    // 🔥 INSERT
-    $stmt = $conn->prepare("INSERT INTO contact (name,email,message) VALUES (?,?,?)");
-    $stmt->bind_param("sss",$name,$email,$message);
+    // ✅ INSERT (WITH user_id)
+    $stmt = $conn->prepare("INSERT INTO contact (user_id,name,email,message) VALUES (?,?,?,?)");
+    $stmt->bind_param("isss",$user_id,$name,$email,$message);
 
     if($stmt->execute()){
-        header("Location: ../pages/contact.html?success=1");
+        header("Location: ../pages/contact.php?success=1");
         exit();
     } else {
-        header("Location: ../pages/contact.html?error=failed");
+        header("Location: ../pages/contact.php?error=failed");
         exit();
     }
 }
