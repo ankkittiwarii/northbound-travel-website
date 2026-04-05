@@ -1,0 +1,206 @@
+/* ===== VARIABLES ===== */
+:root {
+    --brand-orange: #f59e0b;
+    --brand-dark: #0f172a;
+    --text-dark: #334155;
+    --text-gray: #64748b;
+    --card-bg: #ffffff;
+}
+
+/* ===== SAVED PACKAGES GRID ===== */
+.saved-grid {
+    display: grid;
+    /* Auto-magically fits 1 column on small screens, 2 on large screens */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* ===== SAVED CARD ===== */
+.saved-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.saved-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+/* Image Wrapper */
+.saved-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.saved-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.saved-card:hover .saved-img-wrapper img {
+    transform: scale(1.08);
+}
+
+/* Remove Heart Button Overlay */
+.btn-remove-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #ef4444; /* Red heart */
+    font-size: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.btn-remove-icon:hover {
+    background: #fef2f2;
+    transform: scale(1.1);
+}
+
+/* ===== CARD CONTENT ===== */
+.saved-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.saved-location {
+    color: var(--brand-orange);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.saved-info h3 {
+    font-size: 20px;
+    color: var(--brand-dark);
+    margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.saved-duration {
+    color: var(--text-gray);
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ===== CARD FOOTER & ACTIONS ===== */
+.saved-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 15px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.price span {
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.price h4 {
+    margin: 0;
+    color: var(--brand-dark);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.btn-book-now {
+    background-color: var(--brand-orange);
+    color: #111;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.btn-book-now:hover {
+    background-color: #fbbf24;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+    grid-column: 1 / -1; /* Spans across all columns */
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 2px dashed #cbd5e1;
+}
+
+.empty-state i {
+    font-size: 50px;
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    font-size: 24px;
+    color: var(--brand-dark);
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: var(--text-gray);
+    margin-bottom: 25px;
+}
+
+.btn-browse {
+    display: inline-block;
+    background: var(--brand-dark);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-browse:hover {
+    background: var(--brand-orange);
+    color: #111;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .saved-grid {
+        grid-template-columns: 1fr;
+    }
+}

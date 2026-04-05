@@ -1,0 +1,319 @@
+/* ===== RESET & VARIABLES ===== */
+:root {
+    --brand-orange: #f59e0b;
+    --brand-orange-hover: #fbbf24;
+    --brand-dark: #0f172a;
+    --text-dark: #334155;
+    --text-gray: #64748b;
+    --bg-color: #f3f4f6;
+    --card-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    padding-top: 70px; /* Accounts for fixed navbar */
+}
+
+/* ===== LAYOUT ===== */
+.profile-section {
+    position: relative;
+    min-height: calc(100vh - 70px);
+    padding-bottom: 60px;
+}
+
+/* Premium dark background block behind the top of the profile */
+.profile-header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: var(--brand-dark);
+    z-index: -1;
+}
+
+.profile-container {
+    max-width: 1200px;
+    margin: 60px auto 0;
+    padding: 0 20px;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* ===== SIDEBAR ===== */
+.profile-sidebar {
+    flex: 1;
+    min-width: 280px;
+    max-width: 320px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.user-avatar-section {
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+}
+
+.avatar-circle {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--brand-orange), #ea580c);
+    color: white;
+    font-size: 36px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
+}
+
+.user-avatar-section h3 {
+    color: var(--brand-dark);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.member-badge {
+    background: rgba(15, 23, 42, 0.1);
+    color: var(--brand-dark);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Sidebar Navigation Links */
+.profile-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.profile-nav a {
+    padding: 15px 30px;
+    color: var(--text-gray);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.profile-nav a i {
+    font-size: 18px;
+    width: 20px;
+    text-align: center;
+}
+
+.profile-nav a:hover {
+    background: #f8fafc;
+    color: var(--brand-dark);
+    border-left-color: #cbd5e1;
+}
+
+.profile-nav a.active {
+    color: var(--brand-orange);
+    background: #fffbeb;
+    border-left-color: var(--brand-orange);
+}
+
+.profile-nav a.logout-link {
+    color: #ef4444;
+    margin-top: 10px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 20px;
+}
+
+.profile-nav a.logout-link:hover {
+    background: #fef2f2;
+    border-left-color: #ef4444;
+}
+
+/* ===== MAIN CONTENT ===== */
+.profile-content {
+    flex: 2.5;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    padding: 40px 50px;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.content-header {
+    margin-bottom: 30px;
+}
+
+.content-header h2 {
+    color: var(--brand-dark);
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.content-header p {
+    color: var(--text-gray);
+    font-size: 15px;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 40px 0;
+}
+
+/* ===== FORM STYLING ===== */
+.input-row {
+    display: flex;
+    gap: 25px;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--brand-dark);
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--text-dark);
+    background-color: #f8fafc;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--brand-orange);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+
+.input-group input[readonly] {
+    color: #94a3b8;
+    background-color: #f1f5f9;
+    cursor: not-allowed;
+}
+
+.helper-text {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 6px;
+}
+
+/* Buttons */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-save {
+    background: var(--brand-orange);
+    color: #111;
+    border: 2px solid var(--brand-orange);
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+    background: var(--brand-orange-hover);
+    border-color: var(--brand-orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(245, 158, 11, 0.3);
+}
+
+.btn-cancel {
+    background: transparent;
+    color: var(--text-gray);
+    border: 2px solid #cbd5e1;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+    background: #f1f5f9;
+    color: var(--brand-dark);
+    border-color: #94a3b8;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .profile-container {
+        flex-direction: column;
+    }
+    
+    .profile-sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .profile-content {
+        width: 100%;
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .input-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn-save, .btn-cancel {
+        width: 100%;
+    }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

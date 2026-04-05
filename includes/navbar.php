@@ -41,8 +41,8 @@ $base = "/northbound-travel-website/";
         <div class="dropdown">
             <span class="user-name"><?php echo htmlspecialchars($_SESSION['user_name']); ?>▼</span>
             <div class="dropdown-content">
-                <a href="#">My Profile</a>
-                <a href="#">My Bookings</a>
+                <a href="<?php echo $base; ?>pages/profile.php">My Profile</a>
+                <a href="<?php echo $base; ?>pages/my_bookings.php">My Bookings</a>
                 <a href="<?php echo $base; ?>backend/logout.php" class="logout-btn">Logout</a>
             </div>
         </div>
@@ -52,6 +52,11 @@ $base = "/northbound-travel-website/";
         </a>
         <?php } ?>
     </nav>
+
+<script>
+    window.userIsLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
+</script>
+
 </header>
 
 <script>
