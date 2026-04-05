@@ -19,7 +19,7 @@
 /* ===== CONTAINER & TYPOGRAPHY ===== */
 .special-offers {
     background-color: var(--bg-color);
-    padding: 120px 20px 60px; /* Accounts for fixed navbar */
+    padding: 30px 20px 60px; /* Accounts for fixed navbar */
     color: var(--text-dark);
 }
 

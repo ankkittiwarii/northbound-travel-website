@@ -15,7 +15,7 @@ body {
 .destination-section {
     max-width: 1300px; /* Slightly wider to accommodate grids nicely */
     margin: 0 auto;
-    padding: 100px 20px 60px; /* Top padding clears the fixed 70px navbar */
+    padding: 30px 20px 60px; /* Top padding clears the fixed 70px navbar */
 }
 
 .section-header {
