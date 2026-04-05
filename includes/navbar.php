@@ -4,7 +4,7 @@ if(session_status() === PHP_SESSION_NONE){
 }
 $base = "/northbound-travel-website/";
 ?>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <header class="main-header">
     <div class="logo">
         <img src="<?php echo $base; ?>assets/images/logoimage.jfif" alt="NorthBound Logo">
@@ -27,7 +27,7 @@ $base = "/northbound-travel-website/";
         <a href="#" onclick="checkLogin('<?php echo $base; ?>pages/contact.php')">Contact</a>
 
         <div class="dropdown">
-            <span class="dropbtn">More▼</span>
+            <span class="dropbtn">More ▼</span>
             <div class="dropdown-content">
                 <a href="<?php echo $base; ?>pages/packages.php">Packages</a>
                 <a href="<?php echo $base; ?>pages/Special.php">Special Offers</a>
@@ -43,7 +43,7 @@ $base = "/northbound-travel-website/";
             <div class="dropdown-content">
                 <a href="<?php echo $base; ?>pages/profile.php">My Profile</a>
                 <a href="<?php echo $base; ?>pages/my_bookings.php">My Bookings</a>
-                <a href="<?php echo $base; ?>backend/logout.php" class="logout-btn">Logout</a>
+                <a href="<?php echo $base; ?>backend/logout.php" class="logout-btn" onclick="return confirm('Are you sure you want to logout?');"><i class="fa-solid fa-right-from-bracket" ></i> Logout</a>           
             </div>
         </div>
         <?php } else { ?>

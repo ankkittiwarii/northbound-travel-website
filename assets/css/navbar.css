@@ -144,12 +144,17 @@ body {
 
 .logout-btn {
     color: #ef4444 !important;
-    font-weight: 600;
+    font-weight: 600;color: #ef4444;
+    margin-top: 10px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 20px;
 }
 
 .logout-btn:hover {
-    background: rgba(239, 68, 68, 0.1) !important;
-    color: #f87171 !important;
+    /* background: rgba(239, 68, 68, 0.1) !important;
+    color: #f87171 !important; */
+    background: #fef2f2;
+    border-left-color: #ef4444;
 }
 
 /* ===== MOBILE HAMBURGER MENU ===== */

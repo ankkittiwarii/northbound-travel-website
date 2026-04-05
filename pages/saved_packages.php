@@ -73,7 +73,7 @@ $savedPackages = [
                 <a href="my_bookings.php"><i class="fa-solid fa-suitcase-rolling"></i> My Bookings</a>
                 <a href="saved_packages.php" class="active"><i class="fa-solid fa-heart"></i> Saved Packages</a>
                 <a href="settings.php"><i class="fa-solid fa-gear"></i> Settings</a>
-                <a href="../backend/logout.php" class="logout-link"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                <a href="../backend/logout.php" class="logout-link" onclick="return confirm('Are you sure you want to logout?');"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
             </nav>
         </aside>
 
