@@ -54,7 +54,7 @@ session_start();
       <i class="fa-solid fa-quote-left quote-icon"></i>
       <h3>What Our Travelers Say</h3>
       <p class="quote">"The Jaisalmer safari was breathtaking! Every detail was handled perfectly. An adventure of a lifetime."</p>
-      <p class="author">— Karan S.</p>
+      <p class="author">— NorthBound Team</p>
     </div>
   </div>
 </section>

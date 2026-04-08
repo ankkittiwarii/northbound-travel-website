@@ -35,7 +35,7 @@ session_start();
                     <i class="fa-solid fa-envelope"></i>
                     <div>
                         <label>Email Us</label>
-                        <span>karansharma@northbound-travel.com</span>
+                        <span>northbound123@gmail.com</span>
                     </div>
                 </div>
 
@@ -51,7 +51,7 @@ session_start();
                     <i class="fa-solid fa-phone"></i>
                     <div>
                         <label>Call Support</label>
-                        <span>+91 6280647885</span>
+                        <span>6283688141, 6280647885, 7526934093</span>
                     </div>
                 </div>
             </div>

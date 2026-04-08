@@ -39,10 +39,10 @@ $base = "/northbound-travel-website/";
 
         <?php if(isset($_SESSION['user_id'])) { ?>
         <div class="dropdown">
-            <span class="user-name"><?php echo htmlspecialchars($_SESSION['user_name']); ?>▼</span>
+            <span class="user-name">👋 <?php echo htmlspecialchars($_SESSION['user_name']); ?> ▼</span>
             <div class="dropdown-content">
-                <a href="<?php echo $base; ?>pages/profile.php">My Profile</a>
-                <a href="<?php echo $base; ?>pages/my_bookings.php">My Bookings</a>
+                <!-- <a href="<?php echo $base; ?>pages/profile.php">My Profile</a> -->
+                <a href="<?php echo $base; ?>pages/my_bookings.php">My profile</a>
                 <a href="<?php echo $base; ?>backend/logout.php" class="logout-btn" onclick="return confirm('Are you sure you want to logout?');"><i class="fa-solid fa-right-from-bracket" ></i> Logout</a>           
             </div>
         </div>

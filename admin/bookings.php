@@ -86,7 +86,7 @@ $result = mysqli_query($conn,"SELECT * FROM bookings ORDER BY id DESC");
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Destination</th>
+                <!-- <th>Destination</th> -->
                 <th>Guests</th>
                 <th>Travel Date</th>
                 <th>Action</th>
@@ -98,7 +98,7 @@ $result = mysqli_query($conn,"SELECT * FROM bookings ORDER BY id DESC");
                     <td><?php echo htmlspecialchars($row['name']); ?></td>
                     <td><?php echo htmlspecialchars($row['email']); ?></td>
                     <td><?php echo htmlspecialchars($row['phone']); ?></td>
-                    <td><span style="color: #f59e0b; font-weight: 600;"><?php echo htmlspecialchars($row['destination']); ?></span></td>
+                    <!-- <td><span style="color: #f59e0b; font-weight: 600;"><?php echo htmlspecialchars($row['destination']); ?></span></td> -->
                     <td><?php echo htmlspecialchars($row['persons']); ?></td>
                     <td><?php echo htmlspecialchars($row['travel_date']); ?></td>
                     <td>

@@ -35,13 +35,13 @@ if(!isset($_SESSION['user_id'])){
 
                     <div class="input-group">
                         <label>Full Name</label>
-                        <input type="text" name="name" placeholder="e.g. Rajan" required>
+                        <input type="text" name="name" placeholder="e.g. Ankit Tiwari" required>
                     </div>
 
                     <div class="input-row">
                         <div class="input-group">
                             <label>Phone Number</label>
-                            <input type="tel" name="phone" placeholder="+91 9878******" required>
+                            <input type="tel" name="phone" placeholder="+91 6283******" required>
                         </div>
 
                         <div class="input-group">
