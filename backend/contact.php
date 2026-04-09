@@ -12,9 +12,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $user_id = $_SESSION['user_id'];
 
-    // ✅ CHECK USER EXIST
     $checkUser = $conn->prepare("SELECT email FROM users WHERE id=?");
-    $checkUser->bind_param("i",$user_id);
+    $checkUser->bind_param("i", $user_id);
     $checkUser->execute();
     $resultUser = $checkUser->get_result();
 
@@ -27,19 +26,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $user = $resultUser->fetch_assoc();
     $email = $user['email'];
 
-    // ✅ SAFE INPUT
     $name = trim($_POST['name'] ?? '');
-    $message = trim($_POST['message'] ?? '');
+    $phone = trim($_POST['phone'] ?? ''); 
+    $message = trim($_POST['message'] ?? ''); // Sirf message rakho
 
-    // ✅ VALIDATION
     if(empty($name) || empty($message)){
         header("Location: ../pages/contact.php?error=empty");
         exit();
     }
 
-    // ✅ INSERT (WITH user_id)
-    $stmt = $conn->prepare("INSERT INTO contact (user_id,name,email,message) VALUES (?,?,?,?)");
-    $stmt->bind_param("isss",$user_id,$name,$email,$message);
+    // UPDATE: Ab phone number alag column mein jayega
+    // SQL Table mein humne 'phone' column add kar diya hai
+    $stmt = $conn->prepare("INSERT INTO contact (user_id, name, email, phone, message) VALUES (?, ?, ?, ?, ?)");
+    
+    // "issss" -> i=int, s=string (5 placeholders ke liye)
+    $stmt->bind_param("issss", $user_id, $name, $email, $phone, $message);
 
     if($stmt->execute()){
         header("Location: ../pages/contact.php?success=1");

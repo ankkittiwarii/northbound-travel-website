@@ -83,7 +83,9 @@ body {
     font-weight: 600;
 }
 
-.input-group input {
+/* UPDATED: Input and Select styling combined */
+.input-group input, 
+.input-group select {
     width: 100%;
     padding: 14px 16px;
     border: 1px solid #cbd5e1;
@@ -93,9 +95,24 @@ body {
     background-color: #f8fafc;
     transition: all 0.3s ease;
     outline: none;
+    /* Removes default browser styling */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
-.input-group input:focus {
+/* Added Custom Arrow for Select Dropdown */
+.input-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    padding-right: 2.5rem;
+    cursor: pointer;
+}
+
+.input-group input:focus,
+.input-group select:focus {
     border-color: var(--brand-orange);
     background-color: #ffffff;
     box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
@@ -173,13 +190,6 @@ body {
     border: 1px solid #334155;
 }
 
-.old-price {
-    text-decoration: line-through;
-    color: #94a3b8;
-    margin-right: 15px;
-    font-size: 16px;
-}
-
 .new-price {
     font-size: 28px;
     font-weight: 800;
@@ -245,9 +255,8 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Toast */
+/* Toast styling remains same */
 #toast {
-    /* Same toast styles you had, keeping them intact */
     visibility: hidden;
     min-width: 250px;
     background-color: var(--brand-dark);
@@ -267,14 +276,4 @@ body {
 #toast.show {
     visibility: visible;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-@keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-}
-
-@keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
 }

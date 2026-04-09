@@ -19,7 +19,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-dark);
-    padding-top: 100px; /* Accounts for fixed navbar */
+    padding-top: 80px; /* Accounts for fixed navbar */
 }
 
 /* ===== HEADER ===== */

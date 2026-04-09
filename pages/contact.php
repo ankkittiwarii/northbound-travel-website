@@ -1,5 +1,7 @@
 <?php
-session_start();
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -60,14 +62,21 @@ session_start();
         <div class="form-area">
             <h2>Send us a Message</h2>
             <form action="../backend/contact.php" method="POST">
+                <input type="hidden" name="user_id" value="<?php echo isset($_SESSION['user_id']) ? htmlspecialchars($_SESSION['user_id']) : ''; ?>">
+
                 <div class="input-group">
                     <label>Your Name</label>
-                    <input type="text" name="name" placeholder="e.g. Karan Sharma" required>
+                    <input type="text" name="name" placeholder="e.g. Ankit Tiwari" required>
                 </div>
                 
                 <div class="input-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" placeholder="+91 6283******" required>
+                </div>
+
+                <div class="input-group">
                     <label>Email Address</label>
-                    <input type="email" name="email" placeholder="karan@example.com" required>
+                    <input type="email" name="email" placeholder="ankit@example.com" required>
                 </div>
 
                 <div class="input-group">
@@ -85,24 +94,9 @@ session_start();
 <script src="../assets/js/loginCheck.js"></script>
 
 <script>
-// 🔥 ALERT SYSTEM
 const urlParams = new URLSearchParams(window.location.search);
-
-if(urlParams.get('success')){
-    alert("✅ Your message has been sent successfully! Our team will contact you soon.");
-}
-
-if(urlParams.get('error') === "empty"){
-    alert("⚠️ Please fill all required fields.");
-}
-
-if(urlParams.get('error') === "invalid_email"){
-    alert("❌ Invalid email format. Please check and try again.");
-}
-
-if(urlParams.get('error') === "failed"){
-    alert("❌ Something went wrong while sending your message. Please try again later.");
-}
+if(urlParams.get('success')){ alert("✅ Message sent! We'll contact you soon."); }
+if(urlParams.get('error')){ alert("❌ Something went wrong. Please try again."); }
 </script>
 
 </body>
