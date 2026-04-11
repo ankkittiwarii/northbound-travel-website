@@ -33,6 +33,8 @@ $result = mysqli_query($conn,"SELECT * FROM contact ORDER BY id DESC");
         
         .del-btn { color: #ef4444; background: #fee2e2; padding: 10px; border-radius: 10px; cursor: pointer; border: none; transition: 0.3s; }
         .del-btn:hover { background: #ef4444; color: white; }
+        .logout { margin-top: auto; margin-bottom: 30px; color: #f87171 !important; }
+
     </style>
 </head>
 <body>
@@ -41,6 +43,7 @@ $result = mysqli_query($conn,"SELECT * FROM contact ORDER BY id DESC");
         <a href="dashboard.php"><i class="fa-solid fa-house"></i> Dashboard</a>
         <a href="bookings.php"><i class="fa-solid fa-map-location-dot"></i> Manage Bookings</a>
         <a href="enquiries.php" class="active"><i class="fa-solid fa-comment-dots"></i> Enquiries</a>
+        <a href="javascript:void(0);" class="logout" onclick="confirmLogout();"><i class="fa-solid fa-power-off"></i> Logout</a>
     </div>
 
     <div class="main-content">
@@ -103,6 +106,20 @@ $result = mysqli_query($conn,"SELECT * FROM contact ORDER BY id DESC");
                 window.location.href = 'delete_' + type + '.php?id=' + id; 
             } 
         })
+    }
+    </script>
+        <script>
+    function confirmLogout() {
+        Swal.fire({
+            title: 'Logout?',
+            text: "Are you sure you want to end your session?",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#0f172a',
+            cancelButtonColor: '#f87171',
+            confirmButtonText: 'Yes, Logout',
+            borderRadius: '15px'
+        }).then((result) => { if (result.isConfirmed) { window.location.href = 'logout.php'; } })
     }
     </script>
 </body>

@@ -7,7 +7,7 @@ $base = "/northbound-travel-website/";
 ?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <header class="main-header">
     <div class="logo">
         <a href="<?php echo $base; ?>index.php" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
@@ -46,9 +46,7 @@ $base = "/northbound-travel-website/";
         <div class="dropdown">
             <span class="user-name">👋 <?php echo htmlspecialchars($_SESSION['user_name'] ?? 'User'); ?> <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></span>
             <div class="dropdown-content">
-                <a href="<?php echo $base; ?>backend/logout.php" class="logout-btn" onclick="return confirm('Are you sure you want to logout?');">
-                    <i class="fa-solid fa-right-from-bracket"></i> Logout
-                </a>           
+                <a href="#" class="logout-btn" onclick="confirmLogout(event);"><i class="fa-solid fa-right-from-bracket"></i> Logout</a> 
             </div>
         </div>
         <?php } else { ?>
@@ -69,4 +67,24 @@ $base = "/northbound-travel-website/";
         document.querySelector('.nav-links').classList.toggle('active');
         this.classList.toggle('is-active');
     });
+</script>
+<script>
+function confirmLogout(e) {
+    e.preventDefault();
+
+    Swal.fire({
+        title: 'Logout?',
+        text: "Are you sure you want to logout?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, Logout',
+        cancelButtonText: 'Cancel',
+        confirmButtonColor: '#ff4d4d',
+        cancelButtonColor: '#6c757d'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "<?php echo $base; ?>backend/logout.php";
+        }
+    });
+}
 </script>
